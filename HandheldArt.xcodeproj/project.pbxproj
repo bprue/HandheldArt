@@ -7,6 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E0CDF421CACD9DA00FCD011 /* OurTableViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0CDF411CACD9DA00FCD011 /* OurTableViewController3.swift */; };
+		7E35560C1CC55CD6005667EA /* dude.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7E35560B1CC55CD6005667EA /* dude.jpg */; };
+		7E35560F1CC5712A005667EA /* SingleItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E35560E1CC5712A005667EA /* SingleItemViewController.swift */; };
+		7E3556111CC57204005667EA /* SimpleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3556101CC57204005667EA /* SimpleItem.swift */; };
+		7E3556131CC57214005667EA /* SimpleItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3556121CC57214005667EA /* SimpleItemStore.swift */; };
+		7E3556151CC57221005667EA /* ExpandingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3556141CC57221005667EA /* ExpandingCell.swift */; };
+		7E3556171CC5722E005667EA /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3556161CC5722E005667EA /* MainViewModel.swift */; };
+		7E3556191CC57234005667EA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3556181CC57234005667EA /* MainViewController.swift */; };
+		7E35561B1CC57593005667EA /* SingleItemExpandingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E35561A1CC57593005667EA /* SingleItemExpandingCell.swift */; };
+		7E6C3E811CB837BE00B2F1D3 /* 7b3438882572a8be9a03b87e1c7b23de.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7E6C3E801CB837BE00B2F1D3 /* 7b3438882572a8be9a03b87e1c7b23de.jpg */; };
+		7E6C3E851CB83D6E00B2F1D3 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E6C3E821CB83D6E00B2F1D3 /* menu.png */; };
+		7E6C3E861CB83D6E00B2F1D3 /* menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E6C3E831CB83D6E00B2F1D3 /* menu@2x.png */; };
+		7E6C3E871CB83D6E00B2F1D3 /* menu@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E6C3E841CB83D6E00B2F1D3 /* menu@3x.png */; };
+		7E776DDA1CB2F1C80026E521 /* Screen Shot 2016-04-04 at 3.01.50 PM.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E776DD91CB2F1C80026E521 /* Screen Shot 2016-04-04 at 3.01.50 PM.png */; };
+		7E9ACE191CA9B17B00840F03 /* OurCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9ACE181CA9B17B00840F03 /* OurCollectionViewController.swift */; };
+		7E9ACE1B1CA9C6B100840F03 /* SubViewController4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9ACE1A1CA9C6B100840F03 /* SubViewController4.swift */; };
+		7E9ACE1D1CA9C9AB00840F03 /* SubViewController5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9ACE1C1CA9C9AB00840F03 /* SubViewController5.swift */; };
+		7E9ACE1F1CA9C9CC00840F03 /* SubViewController6.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9ACE1E1CA9C9CC00840F03 /* SubViewController6.swift */; };
+		7EA6682E1CC1699300F1E35B /* hha hand.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7EA6682D1CC1699300F1E35B /* hha hand.jpg */; };
 		7EC2B3A11CA59DC100864B51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC2B3A01CA59DC100864B51 /* AppDelegate.swift */; };
 		7EC2B3A31CA59DC100864B51 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC2B3A21CA59DC100864B51 /* ViewController.swift */; };
 		7EC2B3A61CA59DC100864B51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EC2B3A41CA59DC100864B51 /* Main.storyboard */; };
@@ -14,6 +33,16 @@
 		7EC2B3AB1CA59DC100864B51 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EC2B3A91CA59DC100864B51 /* LaunchScreen.storyboard */; };
 		7EC2B3B61CA59DC100864B51 /* HandheldArtTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC2B3B51CA59DC100864B51 /* HandheldArtTests.swift */; };
 		7EC2B3C11CA59DC200864B51 /* HandheldArtUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC2B3C01CA59DC200864B51 /* HandheldArtUITests.swift */; };
+		7EC2B3D21CA59EF100864B51 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC2B3D11CA59EF100864B51 /* SWRevealViewController.m */; };
+		7EC2B3D41CA5A96100864B51 /* SubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC2B3D31CA5A96100864B51 /* SubViewController.swift */; };
+		7EC2B3D61CA5B31400864B51 /* OurTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC2B3D51CA5B31400864B51 /* OurTableViewController.swift */; };
+		7EC2B3D81CA5C5EE00864B51 /* SubViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC2B3D71CA5C5EE00864B51 /* SubViewController2.swift */; };
+		7EC2B3DB1CA5D41700864B51 /* hha logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7EC2B3DA1CA5D41700864B51 /* hha logo.jpg */; };
+		7EC2B3DD1CA9A5A900864B51 /* OurTableViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC2B3DC1CA9A5A900864B51 /* OurTableViewController2.swift */; };
+		7EC2B3DF1CA9A83200864B51 /* SubViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC2B3DE1CA9A83200864B51 /* SubViewController3.swift */; };
+		CEFB133B1D6DE30A00C0E351 /* SidebarTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFB133A1D6DE30A00C0E351 /* SidebarTableViewController.swift */; };
+		CEFB133D1D6DF71400C0E351 /* Picture-50.png in Resources */ = {isa = PBXBuildFile; fileRef = CEFB133C1D6DF71400C0E351 /* Picture-50.png */; };
+		D9FF16C6CDDCFC5397B5118A /* Pods_HandheldArt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B14486050634B3D6BFC15B15 /* Pods_HandheldArt.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +63,26 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3D2722F914E55EFC7D7E201E /* Pods-HandheldArt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HandheldArt.release.xcconfig"; path = "Pods/Target Support Files/Pods-HandheldArt/Pods-HandheldArt.release.xcconfig"; sourceTree = "<group>"; };
+		7E0CDF411CACD9DA00FCD011 /* OurTableViewController3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OurTableViewController3.swift; sourceTree = "<group>"; };
+		7E35560B1CC55CD6005667EA /* dude.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dude.jpg; sourceTree = "<group>"; };
+		7E35560E1CC5712A005667EA /* SingleItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleItemViewController.swift; sourceTree = "<group>"; };
+		7E3556101CC57204005667EA /* SimpleItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleItem.swift; sourceTree = "<group>"; };
+		7E3556121CC57214005667EA /* SimpleItemStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleItemStore.swift; sourceTree = "<group>"; };
+		7E3556141CC57221005667EA /* ExpandingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandingCell.swift; sourceTree = "<group>"; };
+		7E3556161CC5722E005667EA /* MainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		7E3556181CC57234005667EA /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		7E35561A1CC57593005667EA /* SingleItemExpandingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleItemExpandingCell.swift; sourceTree = "<group>"; };
+		7E6C3E801CB837BE00B2F1D3 /* 7b3438882572a8be9a03b87e1c7b23de.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 7b3438882572a8be9a03b87e1c7b23de.jpg; sourceTree = "<group>"; };
+		7E6C3E821CB83D6E00B2F1D3 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
+		7E6C3E831CB83D6E00B2F1D3 /* menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu@2x.png"; sourceTree = "<group>"; };
+		7E6C3E841CB83D6E00B2F1D3 /* menu@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu@3x.png"; sourceTree = "<group>"; };
+		7E776DD91CB2F1C80026E521 /* Screen Shot 2016-04-04 at 3.01.50 PM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screen Shot 2016-04-04 at 3.01.50 PM.png"; sourceTree = "<group>"; };
+		7E9ACE181CA9B17B00840F03 /* OurCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OurCollectionViewController.swift; sourceTree = "<group>"; };
+		7E9ACE1A1CA9C6B100840F03 /* SubViewController4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubViewController4.swift; sourceTree = "<group>"; };
+		7E9ACE1C1CA9C9AB00840F03 /* SubViewController5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubViewController5.swift; sourceTree = "<group>"; };
+		7E9ACE1E1CA9C9CC00840F03 /* SubViewController6.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubViewController6.swift; sourceTree = "<group>"; };
+		7EA6682D1CC1699300F1E35B /* hha hand.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "hha hand.jpg"; sourceTree = "<group>"; };
 		7EC2B39D1CA59DC100864B51 /* HandheldArt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HandheldArt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EC2B3A01CA59DC100864B51 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7EC2B3A21CA59DC100864B51 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +96,20 @@
 		7EC2B3BC1CA59DC200864B51 /* HandheldArtUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HandheldArtUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EC2B3C01CA59DC200864B51 /* HandheldArtUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandheldArtUITests.swift; sourceTree = "<group>"; };
 		7EC2B3C21CA59DC200864B51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7EC2B3CF1CA59EF000864B51 /* HandheldArt-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HandheldArt-Bridging-Header.h"; sourceTree = "<group>"; };
+		7EC2B3D01CA59EF100864B51 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		7EC2B3D11CA59EF100864B51 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		7EC2B3D31CA5A96100864B51 /* SubViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubViewController.swift; sourceTree = "<group>"; };
+		7EC2B3D51CA5B31400864B51 /* OurTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OurTableViewController.swift; sourceTree = "<group>"; };
+		7EC2B3D71CA5C5EE00864B51 /* SubViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubViewController2.swift; sourceTree = "<group>"; };
+		7EC2B3DA1CA5D41700864B51 /* hha logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "hha logo.jpg"; sourceTree = "<group>"; };
+		7EC2B3DC1CA9A5A900864B51 /* OurTableViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OurTableViewController2.swift; sourceTree = "<group>"; };
+		7EC2B3DE1CA9A83200864B51 /* SubViewController3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubViewController3.swift; sourceTree = "<group>"; };
+		B14486050634B3D6BFC15B15 /* Pods_HandheldArt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HandheldArt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEFB133A1D6DE30A00C0E351 /* SidebarTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SidebarTableViewController.swift; sourceTree = "<group>"; };
+		CEFB133C1D6DF71400C0E351 /* Picture-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Picture-50.png"; sourceTree = "<group>"; };
+		D990640AA974ECED90B1BDC7 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2F5B6E3E9A80BC8F577D5F0 /* Pods-HandheldArt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HandheldArt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HandheldArt/Pods-HandheldArt.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9FF16C6CDDCFC5397B5118A /* Pods_HandheldArt.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +138,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6FE66D872D963988440F87BB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F2F5B6E3E9A80BC8F577D5F0 /* Pods-HandheldArt.debug.xcconfig */,
+				3D2722F914E55EFC7D7E201E /* Pods-HandheldArt.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7E35560D1CC56EB1005667EA /* SingleItemExpanding */ = {
+			isa = PBXGroup;
+			children = (
+				7E35560E1CC5712A005667EA /* SingleItemViewController.swift */,
+				7E35561A1CC57593005667EA /* SingleItemExpandingCell.swift */,
+			);
+			name = SingleItemExpanding;
+			sourceTree = "<group>";
+		};
+		7E776DBB1CB2DC500026E521 /* CreditsExpanding */ = {
+			isa = PBXGroup;
+			children = (
+				7E3556181CC57234005667EA /* MainViewController.swift */,
+				7E3556161CC5722E005667EA /* MainViewModel.swift */,
+				7E3556141CC57221005667EA /* ExpandingCell.swift */,
+				7E3556121CC57214005667EA /* SimpleItemStore.swift */,
+				7E3556101CC57204005667EA /* SimpleItem.swift */,
+			);
+			name = CreditsExpanding;
+			sourceTree = "<group>";
+		};
 		7EC2B3941CA59DC100864B51 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +175,8 @@
 				7EC2B3B41CA59DC100864B51 /* HandheldArtTests */,
 				7EC2B3BF1CA59DC200864B51 /* HandheldArtUITests */,
 				7EC2B39E1CA59DC100864B51 /* Products */,
+				AA5EE1F26FABDAF028DD7F40 /* Frameworks */,
+				6FE66D872D963988440F87BB /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,9 +193,24 @@
 		7EC2B39F1CA59DC100864B51 /* HandheldArt */ = {
 			isa = PBXGroup;
 			children = (
+				7E35560D1CC56EB1005667EA /* SingleItemExpanding */,
+				7E776DBB1CB2DC500026E521 /* CreditsExpanding */,
+				7EC2B3D91CA5D3C100864B51 /* Images */,
+				7EC2B3CE1CA59DD500864B51 /* SWRevealViewController */,
 				7EC2B3A01CA59DC100864B51 /* AppDelegate.swift */,
 				7EC2B3A21CA59DC100864B51 /* ViewController.swift */,
 				7EC2B3A41CA59DC100864B51 /* Main.storyboard */,
+				CEFB133A1D6DE30A00C0E351 /* SidebarTableViewController.swift */,
+				7E0CDF411CACD9DA00FCD011 /* OurTableViewController3.swift */,
+				7E9ACE1A1CA9C6B100840F03 /* SubViewController4.swift */,
+				7E9ACE1C1CA9C9AB00840F03 /* SubViewController5.swift */,
+				7E9ACE1E1CA9C9CC00840F03 /* SubViewController6.swift */,
+				7EC2B3DC1CA9A5A900864B51 /* OurTableViewController2.swift */,
+				7EC2B3DE1CA9A83200864B51 /* SubViewController3.swift */,
+				7E9ACE181CA9B17B00840F03 /* OurCollectionViewController.swift */,
+				7EC2B3D51CA5B31400864B51 /* OurTableViewController.swift */,
+				7EC2B3D71CA5C5EE00864B51 /* SubViewController2.swift */,
+				7EC2B3D31CA5A96100864B51 /* SubViewController.swift */,
 				7EC2B3A71CA59DC100864B51 /* Assets.xcassets */,
 				7EC2B3A91CA59DC100864B51 /* LaunchScreen.storyboard */,
 				7EC2B3AC1CA59DC100864B51 /* Info.plist */,
@@ -125,6 +236,41 @@
 			path = HandheldArtUITests;
 			sourceTree = "<group>";
 		};
+		7EC2B3CE1CA59DD500864B51 /* SWRevealViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7EC2B3D01CA59EF100864B51 /* SWRevealViewController.h */,
+				7EC2B3D11CA59EF100864B51 /* SWRevealViewController.m */,
+				7EC2B3CF1CA59EF000864B51 /* HandheldArt-Bridging-Header.h */,
+			);
+			name = SWRevealViewController;
+			sourceTree = "<group>";
+		};
+		7EC2B3D91CA5D3C100864B51 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				CEFB133C1D6DF71400C0E351 /* Picture-50.png */,
+				7E35560B1CC55CD6005667EA /* dude.jpg */,
+				7EA6682D1CC1699300F1E35B /* hha hand.jpg */,
+				7E6C3E821CB83D6E00B2F1D3 /* menu.png */,
+				7E6C3E831CB83D6E00B2F1D3 /* menu@2x.png */,
+				7E6C3E841CB83D6E00B2F1D3 /* menu@3x.png */,
+				7E6C3E801CB837BE00B2F1D3 /* 7b3438882572a8be9a03b87e1c7b23de.jpg */,
+				7E776DD91CB2F1C80026E521 /* Screen Shot 2016-04-04 at 3.01.50 PM.png */,
+				7EC2B3DA1CA5D41700864B51 /* hha logo.jpg */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		AA5EE1F26FABDAF028DD7F40 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D990640AA974ECED90B1BDC7 /* Pods.framework */,
+				B14486050634B3D6BFC15B15 /* Pods_HandheldArt.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +278,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7EC2B3C51CA59DC200864B51 /* Build configuration list for PBXNativeTarget "HandheldArt" */;
 			buildPhases = (
+				737FE2F781F88E47F8AE6892 /* [CP] Check Pods Manifest.lock */,
 				7EC2B3991CA59DC100864B51 /* Sources */,
 				7EC2B39A1CA59DC100864B51 /* Frameworks */,
 				7EC2B39B1CA59DC100864B51 /* Resources */,
+				5AB161A91A9654E174D197A6 /* [CP] Embed Pods Frameworks */,
+				ED4191384B25E9E64998B480 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -229,8 +378,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E6C3E811CB837BE00B2F1D3 /* 7b3438882572a8be9a03b87e1c7b23de.jpg in Resources */,
 				7EC2B3AB1CA59DC100864B51 /* LaunchScreen.storyboard in Resources */,
+				7EC2B3DB1CA5D41700864B51 /* hha logo.jpg in Resources */,
+				CEFB133D1D6DF71400C0E351 /* Picture-50.png in Resources */,
+				7E776DDA1CB2F1C80026E521 /* Screen Shot 2016-04-04 at 3.01.50 PM.png in Resources */,
+				7E6C3E851CB83D6E00B2F1D3 /* menu.png in Resources */,
+				7E35560C1CC55CD6005667EA /* dude.jpg in Resources */,
+				7E6C3E861CB83D6E00B2F1D3 /* menu@2x.png in Resources */,
 				7EC2B3A81CA59DC100864B51 /* Assets.xcassets in Resources */,
+				7EA6682E1CC1699300F1E35B /* hha hand.jpg in Resources */,
+				7E6C3E871CB83D6E00B2F1D3 /* menu@3x.png in Resources */,
 				7EC2B3A61CA59DC100864B51 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -251,13 +409,80 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5AB161A91A9654E174D197A6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HandheldArt/Pods-HandheldArt-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		737FE2F781F88E47F8AE6892 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		ED4191384B25E9E64998B480 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HandheldArt/Pods-HandheldArt-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7EC2B3991CA59DC100864B51 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E3556191CC57234005667EA /* MainViewController.swift in Sources */,
 				7EC2B3A31CA59DC100864B51 /* ViewController.swift in Sources */,
+				7EC2B3DD1CA9A5A900864B51 /* OurTableViewController2.swift in Sources */,
+				7E9ACE1D1CA9C9AB00840F03 /* SubViewController5.swift in Sources */,
 				7EC2B3A11CA59DC100864B51 /* AppDelegate.swift in Sources */,
+				7EC2B3D81CA5C5EE00864B51 /* SubViewController2.swift in Sources */,
+				7EC2B3D21CA59EF100864B51 /* SWRevealViewController.m in Sources */,
+				7E0CDF421CACD9DA00FCD011 /* OurTableViewController3.swift in Sources */,
+				CEFB133B1D6DE30A00C0E351 /* SidebarTableViewController.swift in Sources */,
+				7E9ACE1F1CA9C9CC00840F03 /* SubViewController6.swift in Sources */,
+				7EC2B3D41CA5A96100864B51 /* SubViewController.swift in Sources */,
+				7E35560F1CC5712A005667EA /* SingleItemViewController.swift in Sources */,
+				7E35561B1CC57593005667EA /* SingleItemExpandingCell.swift in Sources */,
+				7E9ACE1B1CA9C6B100840F03 /* SubViewController4.swift in Sources */,
+				7E3556131CC57214005667EA /* SimpleItemStore.swift in Sources */,
+				7E3556111CC57204005667EA /* SimpleItem.swift in Sources */,
+				7E3556171CC5722E005667EA /* MainViewModel.swift in Sources */,
+				7E3556151CC57221005667EA /* ExpandingCell.swift in Sources */,
+				7EC2B3D61CA5B31400864B51 /* OurTableViewController.swift in Sources */,
+				7E9ACE191CA9B17B00840F03 /* OurCollectionViewController.swift in Sources */,
+				7EC2B3DF1CA9A83200864B51 /* SubViewController3.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,23 +622,30 @@
 		};
 		7EC2B3C61CA59DC200864B51 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F2F5B6E3E9A80BC8F577D5F0 /* Pods-HandheldArt.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = HandheldArt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = CDH.HandheldArt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "HandheldArt/HandheldArt-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		7EC2B3C71CA59DC200864B51 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3D2722F914E55EFC7D7E201E /* Pods-HandheldArt.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = HandheldArt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = CDH.HandheldArt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "HandheldArt/HandheldArt-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -484,6 +716,7 @@
 				7EC2B3C71CA59DC200864B51 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7EC2B3C81CA59DC200864B51 /* Build configuration list for PBXNativeTarget "HandheldArtTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +725,7 @@
 				7EC2B3CA1CA59DC200864B51 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7EC2B3CB1CA59DC200864B51 /* Build configuration list for PBXNativeTarget "HandheldArtUITests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +734,7 @@
 				7EC2B3CD1CA59DC200864B51 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

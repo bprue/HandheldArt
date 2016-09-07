@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HandheldArt/OurTableViewController3.swift"
+            timestampString = "481093490.947307"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "glossaryTerms"
+            landmarkType = "19">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HandheldArt.OurTableViewController3.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.NSBundle&gt;) -&gt; HandheldArt.OurTableViewController3"
+                  moduleName = "HandheldArt"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cdh/Desktop/Handheld%20Art/HandheldArt/HandheldArt/OurTableViewController3.swift"
+                  timestampString = "481092562.676798"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "224">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HandheldArt.OurTableViewController3.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;HandheldArt.OurTableViewController3&gt;"
+                  moduleName = "HandheldArt"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cdh/Desktop/Handheld%20Art/HandheldArt/HandheldArt/OurTableViewController3.swift"
+                  timestampString = "481092562.677102"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "164">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
