@@ -1,6 +1,7 @@
 //
 //  SubViewController.swift
 //  HandheldArt
+//  This is the main page (home page).
 //
 //  Created by CDH on 3/25/16.
 //  Copyright © 2016 CDH. All rights reserved.
