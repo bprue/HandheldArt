@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftyJSON
+import SDWebImage
 
 let siExpandingCellId = "expandingCell"
 let siEstimatedHeight: CGFloat = 150
@@ -19,11 +20,19 @@ class SingleItemViewController: UITableViewController {
     
     let viewModel = SingleItemViewModel()
     
+    @IBOutlet weak var itemImage: UIImageView!
+    
     @IBOutlet weak var menuButton: UIBarButtonItem!
     override func viewDidLoad() {
         super.viewDidLoad()
         
 
+        let imageURL:NSURL? = NSURL(string: "http://handheldart.org/files/original/7b3438882572a8be9a03b87e1c7b23de.jpg")
+        
+        if let url = imageURL {
+            itemImage.sd_setImageWithURL(url)
+        }
+        
         
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
