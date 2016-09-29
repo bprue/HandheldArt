@@ -1,7 +1,9 @@
 //
 //  SubViewController.swift
 //  HandheldArt
-//  This is the main page (home page).
+//  View Controller for the Home Page, which users land on after loading application. 
+//  At the very top is a description of the application and the HHA project.
+//  Beneath this will be an "Item of the Day" randomly pulled from a collection. The title and creator will be displayed, along with a button to navigate to the full page about that item.
 //
 //  Created by CDH on 3/25/16.
 //  Copyright © 2016 CDH. All rights reserved.
@@ -14,8 +16,7 @@ import SwiftyJSON
 class SubViewController: UIViewController {
 
     
-    @IBOutlet weak var menuButton: UIBarButtonItem!    
-
+    @IBOutlet weak var menuButton: UIBarButtonItem!  //menu button
     @IBOutlet weak var HHAdescription: UILabel!
     @IBOutlet weak var itemDayLabel: UILabel!
     @IBOutlet weak var itemOTDtitle: UILabel!
@@ -25,22 +26,8 @@ class SubViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        print ("hellooo")
-//        // Do any additional setup after loading the view, typically from a nib.
-//        Alamofire.request(.GET, "http://handheldart.org/api/tags/").responseJSON { (response) -> Void in
-//            
-//            if let value = response.result.value {
-//                let json = JSON(value)
-//                print(json)
-//            }
-//        }
-        
-
-        
-
     
-        
+        //Reveals left-side navigation menu
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
             menuButton.action = "revealToggle:"
@@ -52,20 +39,7 @@ class SubViewController: UIViewController {
         self.itemOTDtitle.text = "Earl and Countess of Derby with Edward, their Infant Son, and Chaplain"
         self.itemOTDcreator.text = "Benjamin Wilson (1721-1788)"
 
-        // Do any additional setup after loading the view.
+
     }
-
-
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

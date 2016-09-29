@@ -1,20 +1,41 @@
 //
 //  OurTableViewController.swift
 //  HandheldArt
+//  Table View Controller for "Browse Collections" page. Here, call to the HHA API automatically populates each cell with the name of a collection stored in Handheld Art. Each cell will have the background image of the first item in that collection.
 //
 //  Created by CDH on 3/25/16.
 //  Copyright © 2016 CDH. All rights reserved.
 //
 
+import SwiftyJSON
 import UIKit
 
 class OurTableViewController: UITableViewController {
 
     @IBOutlet weak var menuButton: UIBarButtonItem!
+    
+    var labels = [String: UILabel]()
+    var strings = [String]()
+    var objects = [[String: String]]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        /***/
+        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        
+        //This gets the Enduring Idea names that will be used for cells
+        let urlString = "http://handheldart.org/api/collections/"
+        if let url = NSURL(string: urlString) {
+            if let data = try? NSData(contentsOfURL: url, options: []) {
+                let json = JSON(data: data)
+                parseJSON(json)
+            }
+        }
+        /***/
+        
+        
+        //Reveals left-side navigation menu
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
             menuButton.action = "revealToggle:"
@@ -27,11 +48,43 @@ class OurTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
+    
+    //Creates array 'objects' based on the desired components of the JSON data - which is acquired above from the URL
+    func parseJSON(json: JSON) {
+        for result in json.arrayValue {
+            let id = result["id"].stringValue
+            let tagURL = result["url"].stringValue
+            let tagName = result["name"].stringValue
+            let obj = ["id": id, "tagURL": tagURL, "tagName": tagName]
+            //print (tagName)
+            objects.append(obj)
+        }
+        tableView.reloadData()
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    //Creates number of rows based on count of objects array
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return objects.count
+    }
+    
+    
+    //This is where the actual text is set for the cells
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        var cell:UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
+        
+        let object = objects[indexPath.row]
+        
+        cell.textLabel?.text =  object["tagName"]!
+        
+        return cell
+    }
 
-//    override func didReceiveMemoryWarning() {
-//        super.didReceiveMemoryWarning()
-//        // Dispose of any resources that can be recreated.
-//    }
+
 //
 //    // MARK: - Table view data source
 //
@@ -40,20 +93,7 @@ class OurTableViewController: UITableViewController {
 //        return 0
 //    }
 //
-//    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        // #warning Incomplete implementation, return the number of rows
-//        return 0
-//    }
 
-    /*
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
 
     /*
     // Override to support conditional editing of the table view.
