@@ -77,6 +77,8 @@ class OurTableViewController2: UITableViewController {
         
         cell.textLabel?.text =  object["tagName"]!
         
+        cell.backgroundColor = UIColor.clearColor()
+        
         return cell
     }
     

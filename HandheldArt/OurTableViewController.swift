@@ -24,7 +24,8 @@ class OurTableViewController: UITableViewController {
         /***/
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
-        //This gets the Enduring Idea names that will be used for cells
+        //This gets the Collection names that will be used for cells
+        //Currently, it gets anything under the "text" key- but we will only want the names of collections..
         let urlString = "http://handheldart.org/api/collections/"
         if let url = NSURL(string: urlString) {
             if let data = try? NSData(contentsOfURL: url, options: []) {
@@ -51,17 +52,24 @@ class OurTableViewController: UITableViewController {
     
     //Creates array 'objects' based on the desired components of the JSON data - which is acquired above from the URL
     func parseJSON(json: JSON) {
+        
         for result in json.arrayValue {
-            let id = result["id"].stringValue
-            let tagURL = result["url"].stringValue
-            let tagName = result["name"].stringValue
-            let obj = ["id": id, "tagURL": tagURL, "tagName": tagName]
-            //print (tagName)
-            objects.append(obj)
+            //gets collection ID
+            let givenID = result["id"].stringValue
+
+            let element_texts = result["element_texts"].arrayValue
+            
+            for element in element_texts {
+                let _ = element["html"].stringValue
+                let givenText = element["text"].stringValue
+                let obj = ["id": givenID, "text": givenText]
+                objects.append(obj)
+            }
         }
+
         tableView.reloadData()
     }
-    
+  
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -69,6 +77,7 @@ class OurTableViewController: UITableViewController {
     
     //Creates number of rows based on count of objects array
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(objects.count)
         return objects.count
     }
     
@@ -79,7 +88,9 @@ class OurTableViewController: UITableViewController {
         
         let object = objects[indexPath.row]
         
-        cell.textLabel?.text =  object["tagName"]!
+        cell.textLabel?.text =  object["text"]!
+        
+        cell.backgroundColor = UIColor.clearColor()
         
         return cell
     }
