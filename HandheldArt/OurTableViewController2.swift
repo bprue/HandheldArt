@@ -2,6 +2,7 @@
 //  OurTableViewController2.swift
 //  HandheldArt
 //
+//  The Table View for the "Browse Enduring Ideas" page. Here, a call to the HHA takes all of the "tags" (which are actually Enduring Idea names) and automatically populates cells. Each cell's background image will be the first item from that Enduring Idea.
 //  Created by CDH on 3/28/16.
 //  Copyright © 2016 CDH. All rights reserved.
 //
@@ -26,7 +27,7 @@ class OurTableViewController2: UITableViewController {
         
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
-        //gets data that will be used for cells
+        //This gets the Enduring Idea names that will be used for cells
         let urlString = "http://handheldart.org/api/tags/"
         if let url = NSURL(string: urlString) {
             if let data = try? NSData(contentsOfURL: url, options: []) {
@@ -35,7 +36,7 @@ class OurTableViewController2: UITableViewController {
             }
         }
 
-        //menu button at top left of screen
+        //Reveals left-side navigation menu
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
             menuButton.action = "revealToggle:"
@@ -44,7 +45,7 @@ class OurTableViewController2: UITableViewController {
     
     }
     
-    //creates array 'objects'
+    //Creates array 'objects' based on the desired components of the JSON data - which is acquired above from the URL
     func parseJSON(json: JSON) {
         for result in json.arrayValue {
             let id = result["id"].stringValue
@@ -54,7 +55,6 @@ class OurTableViewController2: UITableViewController {
             //print (tagName)
             objects.append(obj)
         }
-        
          tableView.reloadData()
     }
 
@@ -63,22 +63,21 @@ class OurTableViewController2: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    // MARK: - Table view data source
-
-    //create number of rows based on count of objects array
+    //Creates number of rows based on count of objects array
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print ("OBJECTS COUNT")
-        print (objects.count) //prints 38
         return objects.count
     }
     
+    
+    //This is where the actual text is set for the cells
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-var cell:UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
+        var cell:UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
         
         let object = objects[indexPath.row]
         
         cell.textLabel?.text =  object["tagName"]!
+        
+        cell.backgroundColor = UIColor.clearColor()
         
         return cell
     }
