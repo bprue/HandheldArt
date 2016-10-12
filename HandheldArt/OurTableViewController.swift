@@ -57,14 +57,26 @@ class OurTableViewController: UITableViewController {
             //gets collection ID
             let givenID = result["id"].stringValue
 
+            //gets url of all items in 
+            let itemsURL = result["items"]["url"].stringValue
+            
             let element_texts = result["element_texts"].arrayValue
             
             for element in element_texts {
                 let _ = element["html"].stringValue
                 let givenText = element["text"].stringValue
-                let obj = ["id": givenID, "text": givenText]
-                objects.append(obj)
+                let elementType = element["element"]["name"].stringValue
+                
+                //checks to make sure the text we are getting is the title of a collection
+                if (elementType == "Title")
+                {
+                    let obj = ["id": givenID, "itemsURL": itemsURL, "text": givenText]
+                    objects.append(obj)
+                }
+
             }
+            
+
         }
 
         tableView.reloadData()

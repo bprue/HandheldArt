@@ -28,7 +28,7 @@ class OurTableViewController2: UITableViewController {
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
         //This gets the Enduring Idea names that will be used for cells
-        let urlString = "http://handheldart.org/api/tags/"
+        let urlString = "http://handheldart.org/api/exhibit_pages/"
         if let url = NSURL(string: urlString) {
             if let data = try? NSData(contentsOfURL: url, options: []) {
                 let json = JSON(data: data)
@@ -50,7 +50,7 @@ class OurTableViewController2: UITableViewController {
         for result in json.arrayValue {
             let id = result["id"].stringValue
             let tagURL = result["url"].stringValue
-            let tagName = result["name"].stringValue
+            let tagName = result["title"].stringValue
             let obj = ["id": id, "tagURL": tagURL, "tagName": tagName]
             //print (tagName)
             objects.append(obj)
@@ -82,6 +82,23 @@ class OurTableViewController2: UITableViewController {
         return cell
     }
     
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        self.performSegueWithIdentifier("endIdeaSegue", sender: self)
+        
+        
+    }
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "endIdeaSegue", let destination = segue.destinationViewController as? EndIdeaTabBarController
+            {
+            if let cell = sender as? UITableViewCell, let indexPath = tableView.indexPathForCell(cell) {
+                //var affiliation = objects[indexPath.row]
+                //destination.affiliation = affiliation
+            }
+        }
+    }
     
 //    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
 //        // #warning Incomplete implementation, return the number of sections
