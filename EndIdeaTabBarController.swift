@@ -9,5 +9,12 @@
 
 
 class EndIdeaTabBarController: UITabBarController {
+    
+    var enduringIdeaTitle:String!
+    
+    
+    
+    
+    
 
 }

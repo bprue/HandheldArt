@@ -9,6 +9,7 @@
 
 import SwiftyJSON
 import UIKit
+//import SubViewController3.swift
 
 class OurTableViewController2: UITableViewController {
 
@@ -91,12 +92,24 @@ class OurTableViewController2: UITableViewController {
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "endIdeaSegue", let destination = segue.destinationViewController as? EndIdeaTabBarController
-            {
-            if let cell = sender as? UITableViewCell, let indexPath = tableView.indexPathForCell(cell) {
-                //var affiliation = objects[indexPath.row]
-                //destination.affiliation = affiliation
-            }
+        if segue.identifier == "endIdeaSegue"
+        {
+            
+            let tabBarDestination = segue.destinationViewController as? EndIdeaTabBarController
+        
+                let endIdeaNav = tabBarDestination?.viewControllers?.first as! UINavigationController
+            
+                let endIdeaController = endIdeaNav.topViewController as! SubViewController3
+            
+                if let myIndex = tableView.indexPathForSelectedRow?.row
+                {
+                    let object = objects[myIndex]
+                    let endIdeaName = object["tagName"]!
+                    let endIdeaURL = object["tagURL"]!
+                    endIdeaController.passName = endIdeaName
+                    endIdeaController.passURL = endIdeaURL
+                }
+            
         }
     }
     
