@@ -22,13 +22,13 @@ class OurTableViewController: UITableViewController {
         super.viewDidLoad()
         
         /***/
-        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
         //This gets the Collection names that will be used for cells
         //Currently, it gets anything under the "text" key- but we will only want the names of collections..
         let urlString = "http://handheldart.org/api/collections/"
-        if let url = NSURL(string: urlString) {
-            if let data = try? NSData(contentsOfURL: url, options: []) {
+        if let url = URL(string: urlString) {
+            if let data = try? Data(contentsOf: url, options: []) {
                 let json = JSON(data: data)
                 parseJSON(json)
             }
@@ -39,7 +39,7 @@ class OurTableViewController: UITableViewController {
         //Reveals left-side navigation menu
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
-            menuButton.action = "revealToggle:"
+            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
 
@@ -51,7 +51,7 @@ class OurTableViewController: UITableViewController {
     }
     
     //Creates array 'objects' based on the desired components of the JSON data - which is acquired above from the URL
-    func parseJSON(json: JSON) {
+    func parseJSON(_ json: JSON) {
         
         for result in json.arrayValue {
             //gets collection ID
@@ -88,21 +88,21 @@ class OurTableViewController: UITableViewController {
     }
     
     //Creates number of rows based on count of objects array
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print(objects.count)
         return objects.count
     }
     
     
     //This is where the actual text is set for the cells
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell:UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell:UITableViewCell = self.tableView.dequeueReusableCell(withIdentifier: "cell")! as UITableViewCell
         
-        let object = objects[indexPath.row]
+        let object = objects[(indexPath as NSIndexPath).row]
         
         cell.textLabel?.text =  object["text"]!
         
-        cell.backgroundColor = UIColor.clearColor()
+        cell.backgroundColor = UIColor.clear
         
         return cell
     }

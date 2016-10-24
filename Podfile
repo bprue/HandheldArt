@@ -1,11 +1,15 @@
+source 'https://github.com/CocoaPods/Specs.git'
+#source 'https://github.com/rs/SDWebImage'
+
 project 'HandheldArt.xcodeproj'
-platform :ios, '8.1'
+platform :ios, '10.0'
 use_frameworks!
 pod 'ExpandingTableView'
 
 target 'HandheldArt' do 
 
-pod 'Alamofire', '~> 3.2.1'
-pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
+pod 'Alamofire', '~> 4.0'
+pod 'SwiftyJSON'
 pod 'SDWebImage', '~>3.8'
+pod 'Kanna', '~> 2.0.0'
 end

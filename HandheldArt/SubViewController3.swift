@@ -11,6 +11,8 @@
 
 import UIKit
 import SwiftyJSON
+import Kanna
+import Alamofire
 
 class SubViewController3: UIViewController {
     var passName:String!
@@ -31,15 +33,33 @@ class SubViewController3: UIViewController {
         
         let urlString = passURL
         print (urlString)
-        if let url = NSURL(string: urlString) {
-            if let data = try? NSData(contentsOfURL: url, options: []) {
+        if let url = URL(string: urlString!) {
+            if let data = try? Data(contentsOf: url, options: []) {
                 let json = JSON(data: data)
                 
                 let pageBlocks = json["page_blocks"].arrayValue
                 let pageBlock = pageBlocks.first
                 descText = pageBlock!["text"].stringValue
+
                 
-                print(descText)
+                
+                
+                /** Will come back to this...for parsing HTML 
+                 
+                 
+                let html = descText
+                if let doc = Kanna.HTML(html: html!, encoding: String.Encoding.utf8) {
+                    let bodyNode = doc.body
+                    print ("HEY!!!!!!!")
+                    if let inputNodes = bodyNode?.xpath("//a/@href[ends-with(.,'.txt')]") {
+                        print ( "HOOO!!!!!!!")
+                        for node in inputNodes {
+                            print ("ALRIGHT")
+                            print(node.content)
+                        }
+                    }
+                }**/
+                //print(descText)
                 
                 
                     
@@ -70,7 +90,7 @@ class SubViewController3: UIViewController {
 
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
-            menuButton.action = "revealToggle:"
+            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         
@@ -88,6 +108,7 @@ class SubViewController3: UIViewController {
     
     }
     
+
     /**
     func parseJSON(json: JSON) {
         for result in json.arrayValue {

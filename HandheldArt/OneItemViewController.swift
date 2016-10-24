@@ -18,14 +18,14 @@ class OneItemViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let imageURL:NSURL? = NSURL(string: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Pic_de_neige_cordier_Face_E.jpg")
+        let imageURL:URL? = URL(string: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Pic_de_neige_cordier_Face_E.jpg")
         
         if imageURL != nil
         {
             //even though I initially named this "itemImage" it is actually a UIImageView, not a UIImage.
-            itemImage.sd_setImageWithURL(imageURL)
+            itemImage.sd_setImage(with: imageURL)
             
-            itemImage.contentMode = UIViewContentMode.ScaleAspectFit
+            itemImage.contentMode = UIViewContentMode.scaleAspectFit
 
            // AVMakeRectWithAspectRatioInsideRect(itemImage.image!.size, itemImage.bounds)
            
@@ -39,7 +39,7 @@ class OneItemViewController: UIViewController {
         
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
-            menuButton.action = "revealToggle:"
+            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
     

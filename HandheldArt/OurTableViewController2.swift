@@ -26,12 +26,12 @@ class OurTableViewController2: UITableViewController {
         tableView.dataSource = self
         tableView.delegate = self
         
-        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
         //This gets the Enduring Idea names that will be used for cells
         let urlString = "http://handheldart.org/api/exhibit_pages/"
-        if let url = NSURL(string: urlString) {
-            if let data = try? NSData(contentsOfURL: url, options: []) {
+        if let url = URL(string: urlString) {
+            if let data = try? Data(contentsOf: url, options: []) {
                 let json = JSON(data: data)
                 parseJSON(json)
             }
@@ -40,14 +40,14 @@ class OurTableViewController2: UITableViewController {
         //Reveals left-side navigation menu
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
-            menuButton.action = "revealToggle:"
+            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
     
     }
     
     //Creates array 'objects' based on the desired components of the JSON data - which is acquired above from the URL
-    func parseJSON(json: JSON) {
+    func parseJSON(_ json: JSON) {
         for result in json.arrayValue {
             let id = result["id"].stringValue
             let tagURL = result["url"].stringValue
@@ -65,43 +65,43 @@ class OurTableViewController2: UITableViewController {
     }
 
     //Creates number of rows based on count of objects array
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return objects.count
     }
     
     
     //This is where the actual text is set for the cells
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell:UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell:UITableViewCell = self.tableView.dequeueReusableCell(withIdentifier: "cell")! as UITableViewCell
         
-        let object = objects[indexPath.row]
+        let object = objects[(indexPath as NSIndexPath).row]
         
         cell.textLabel?.text =  object["tagName"]!
         
-        cell.backgroundColor = UIColor.clearColor()
+        cell.backgroundColor = UIColor.clear
         
         return cell
     }
     
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        self.performSegueWithIdentifier("endIdeaSegue", sender: self)
+        self.performSegue(withIdentifier: "endIdeaSegue", sender: self)
         
         
     }
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "endIdeaSegue"
         {
             
-            let tabBarDestination = segue.destinationViewController as? EndIdeaTabBarController
+            let tabBarDestination = segue.destination as? EndIdeaTabBarController
         
                 let endIdeaNav = tabBarDestination?.viewControllers?.first as! UINavigationController
             
                 let endIdeaController = endIdeaNav.topViewController as! SubViewController3
             
-                if let myIndex = tableView.indexPathForSelectedRow?.row
+                if let myIndex = (tableView.indexPathForSelectedRow as NSIndexPath?)?.row
                 {
                     let object = objects[myIndex]
                     let endIdeaName = object["tagName"]!
