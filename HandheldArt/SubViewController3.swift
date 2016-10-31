@@ -11,8 +11,8 @@
 
 import UIKit
 import SwiftyJSON
-import Kanna
 import Alamofire
+import Foundation
 
 class SubViewController3: UIViewController {
     var passName:String!
@@ -20,13 +20,12 @@ class SubViewController3: UIViewController {
     @IBOutlet weak var EnduringIdeaTitle: UILabel!
     @IBOutlet weak var EnduringIdeaDesc: UILabel!
     @IBOutlet weak var menuButton: UIBarButtonItem!
-    @IBOutlet weak var KeyConcepts: UILabel!
-    @IBOutlet weak var EssentialQs: UILabel!
     
     var labels = [String: UILabel]()
     var strings = [String]()
     var objects = [[String: String]]()
     var descText:String!
+    var descTextWHTML:String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,60 +38,24 @@ class SubViewController3: UIViewController {
                 
                 let pageBlocks = json["page_blocks"].arrayValue
                 let pageBlock = pageBlocks.first
-                descText = pageBlock!["text"].stringValue
+                descTextWHTML = pageBlock!["text"].stringValue
+
+                //parse out the HTML tags
+                descText = descTextWHTML.stripHTML()
 
                 
-                
-                
-                /** Will come back to this...for parsing HTML 
-                 
-                 
-                let html = descText
-                if let doc = Kanna.HTML(html: html!, encoding: String.Encoding.utf8) {
-                    let bodyNode = doc.body
-                    print ("HEY!!!!!!!")
-                    if let inputNodes = bodyNode?.xpath("//a/@href[ends-with(.,'.txt')]") {
-                        print ( "HOOO!!!!!!!")
-                        for node in inputNodes {
-                            print ("ALRIGHT")
-                            print(node.content)
-                        }
-                    }
-                }**/
-                //print(descText)
-                
-                
-                    
-                
-              
-                
-                
-                /**
-                if let id = json["id"] as? [[[String: AnyObject]]
-                {
-                    print(id)
-                }**/
-                /**
-                
-                for result in json.arrayValue {
-                    let id = result["id"].stringValue
-                    print (id)
-                    let pageBlocks = result["page_blocks"].arrayValue
-                    
-                    let firstPageBlock = pageBlocks.first
-                    
-                    descText = firstPageBlock!["text"].stringValue
-                    print(descText)
-                }
- **/
+
             }
         }
+        
 
+
+    
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
             menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        }
+      
         
         // Do any additional setup after loading the view.
         
@@ -100,10 +63,7 @@ class SubViewController3: UIViewController {
         
         //let object = objects[0]
         self.EnduringIdeaDesc.text = descText
-        
-        self.KeyConcepts.text = "• Perceptions/Misperceptions of aging are varied \n• Changes associated with aging are tangible and intangible \n• Milestones/Rituals associated with aging"
-        
-        self.EssentialQs.text = "• How is aging portrayed in culture? \n• In what ways are changes evident? \n•What rituals are often associated aging?"
+    
         
     
     }
@@ -126,12 +86,12 @@ class SubViewController3: UIViewController {
             //print (tagName)
             objects.append(obj)
         }
-        
+        **/
         
         //tableView.reloadData()
-    }**/
+    }
     
-    
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -149,4 +109,33 @@ class SubViewController3: UIViewController {
     }
     */
 
+}
+
+/**
+ The html replacement regular expression
+ */
+let     htmlReplaceString   :   String  =   "<[^>]+>"
+
+extension NSString {
+    /**
+     Takes the current NSString object and strips out HTML using regular expression. All tags get stripped out.
+     
+     :returns: NSString html text as plain text
+     */
+    
+    
+    func stripHTML() -> NSString {
+        return self.replacingOccurrences(of: htmlReplaceString, with: "", options: NSString.CompareOptions.regularExpression, range: NSRange(location: 0,length: self.length)) as NSString
+    }
+}
+
+extension String {
+    /**
+     Takes the current String struct and strips out HTML using regular expression. All tags get stripped out.
+     
+     :returns: String html text as plain text
+     */
+    func stripHTML() -> String {
+        return self.replacingOccurrences(of: htmlReplaceString, with: "", options: NSString.CompareOptions.regularExpression, range: nil)
+    }
 }

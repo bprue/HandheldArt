@@ -18,7 +18,7 @@ class OneItemViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let imageURL:URL? = URL(string: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Pic_de_neige_cordier_Face_E.jpg")
+        let imageURL:URL? = URL(string: "http://handheldart.org/files/original/7b3438882572a8be9a03b87e1c7b23de.jpg")
         
         if imageURL != nil
         {
@@ -43,7 +43,7 @@ class OneItemViewController: UIViewController {
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
     
-        self.titleText.text = "Title: " + "Earl and Countess of Derby with Edward, their Infant Son, and Chaplain Mauris est odio, congue et commodo at, tristique sed metus. In at tristique urna. Aliquam et leo ante. Mauris sed fermentum justo. Aenean aliquet tellus eu leo malesuada, nec efficitur turpis dictum. Morbi neque risus, molestie non ligula ullamcorper, maximus fermentum ligula. Vivamus eget cursus est. Maecenas ac nulla malesuada, porta tortor quis, cursus nibh. In lobortis ac nunc nec rhoncus. Vestibulum sem lorem, mattis nec iaculis at, congue suscipit mi. Donec ut nibh id turpis blandit porta ac in nisi. Fusce sed leo tristique, rhoncus elit et, blandit libero. Sed cursus, lorem eu porttitor lacinia, sapien magna hendrerit nisi, quis malesuada lectus neque id turpis. Sed imperdiet elit magna, porta placerat tortor aliquam id. Donec ipsum nulla, scelerisque nec dolor pulvinar, facilisis sagittis lacus.  "
+        self.titleText.text = "Title: " + "Earl and Countess of Derby with Edward, their Infant Son, and Chaplain \nCreator: Benjamin Wilson (1721-1788) \nDate: 1777 \nSubject: Neoclassicism \nRights: Columbia Museum of Arts \nOriginal format: oil on canvas \nCitation: Benjamin Wilson (1721-1788), “Earl and Countess of Derby with Edward, their Infant Son, and Chaplain,” Handheld Art, accessed October 28, 2016, http://handheldart.org/items/show/17."
 
         // Do any additional setup after loading the view.
     }

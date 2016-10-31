@@ -94,12 +94,19 @@ class OurTableViewController2: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "endIdeaSegue"
         {
-            
+        
             let tabBarDestination = segue.destination as? EndIdeaTabBarController
         
+            
+                //goes to Nav Controller for EndIdeaDescription
                 let endIdeaNav = tabBarDestination?.viewControllers?.first as! UINavigationController
             
+                //Goes to EndIdeaDescription ViewController
                 let endIdeaController = endIdeaNav.topViewController as! SubViewController3
+            
+                let endIdeaGalleryNav = tabBarDestination?.viewControllers?.last as! UINavigationController
+            
+                let endIdeaGalleryController = endIdeaGalleryNav.topViewController as! GalleryViewController
             
                 if let myIndex = (tableView.indexPathForSelectedRow as NSIndexPath?)?.row
                 {
@@ -108,6 +115,9 @@ class OurTableViewController2: UITableViewController {
                     let endIdeaURL = object["tagURL"]!
                     endIdeaController.passName = endIdeaName
                     endIdeaController.passURL = endIdeaURL
+                    
+                    endIdeaGalleryController.passName = endIdeaName
+                    endIdeaGalleryController.passURL = endIdeaURL
                 }
             
         }
