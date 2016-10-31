@@ -6,6 +6,7 @@
 //  Copyright © 2016 CDH. All rights reserved.
 //
 
+/**
 import UIKit
 import Alamofire
 
@@ -33,3 +34,4 @@ class ViewController: UIViewController {
 
 }
 
+**/

@@ -10,39 +10,88 @@
 // Icons from https://icons8.com/license/
 
 import UIKit
+import SwiftyJSON
+import Alamofire
+import Foundation
 
 class SubViewController3: UIViewController {
+    var passName:String!
+    var passURL:String!
     @IBOutlet weak var EnduringIdeaTitle: UILabel!
     @IBOutlet weak var EnduringIdeaDesc: UILabel!
     @IBOutlet weak var menuButton: UIBarButtonItem!
-    @IBOutlet weak var KeyConcepts: UILabel!
-    @IBOutlet weak var EssentialQs: UILabel!
+    
+    var labels = [String: UILabel]()
+    var strings = [String]()
+    var objects = [[String: String]]()
+    var descText:String!
+    var descTextWHTML:String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let urlString = passURL
+        print (urlString)
+        if let url = URL(string: urlString!) {
+            if let data = try? Data(contentsOf: url, options: []) {
+                let json = JSON(data: data)
+                
+                let pageBlocks = json["page_blocks"].arrayValue
+                let pageBlock = pageBlocks.first
+                descTextWHTML = pageBlock!["text"].stringValue
 
+                //parse out the HTML tags
+                descText = descTextWHTML.stripHTML()
+
+                
+
+            }
+        }
+        
+
+
+    
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
-            menuButton.action = "revealToggle:"
+            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        }
+      
         
         // Do any additional setup after loading the view.
         
-        self.EnduringIdeaTitle.text = "Aging"
-        self.EnduringIdeaDesc.text = "Aging refers to intangible and tangible changes in an organism, object, and natural forms. In living organisms aging is recognized by a gradual change that leads to increased risk of weakness, disease, and death. Aging takes place over the entire adult life span of any living thing. While aging does refer to the process through which humans reach a particular stage in life, aging also refers to gaining and developing intangibles such as wisdom, knowledge, and experiences. \nArt objects such as portraits, photographs, prints, and sculptures often depict signs of physical aging in realistic and exaggerated detail. Many artworks depict coming of age milestones and ceremonies associated with cultural expectations related to age. \nMan-made objects and natural forms also age producing effortless patinas that add vibrant colors and distinctive textures to surfaces. Forces in nature age wood, stone, and landforms to produce monuments, crystals, and sculptural forms which serve as creative and artistic representation for many works of art. Ceramic and sculptural objects often replicate visual details associated by aging on their surfaces and objects displayed in museums across the world represent evidences and degrees of aging providing clues to their histories and broadening appreciation of visual qualities associated with aging."
+        self.EnduringIdeaTitle.text = passName
         
-        self.KeyConcepts.text = "• Perceptions/Misperceptions of aging are varied \n• Changes associated with aging are tangible and intangible \n• Milestones/Rituals associated with aging"
-        
-        self.EssentialQs.text = "• How is aging portrayed in culture? \n• In what ways are changes evident? \n•What rituals are often associated aging?"
+        //let object = objects[0]
+        self.EnduringIdeaDesc.text = descText
+    
         
     
     }
     
+
+    /**
+    func parseJSON(json: JSON) {
+        for result in json.arrayValue {
+            //let _ = result["id"].stringValue
+            //let _ = result["url"].stringValue
+            //let _ = result["title"].stringValue
+            
+            let pageBlocks = result["page_blocks"].arrayValue
+            
+            let firstPageBlock = pageBlocks.first
+            
+            let descText = firstPageBlock!["text"].stringValue
+            
+            let obj = ["Desc" : descText]
+            //print (tagName)
+            objects.append(obj)
+        }
+        **/
+        
+        //tableView.reloadData()
+    }
     
 
-    
-    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -60,4 +109,33 @@ class SubViewController3: UIViewController {
     }
     */
 
+}
+
+/**
+ The html replacement regular expression
+ */
+let     htmlReplaceString   :   String  =   "<[^>]+>"
+
+extension NSString {
+    /**
+     Takes the current NSString object and strips out HTML using regular expression. All tags get stripped out.
+     
+     :returns: NSString html text as plain text
+     */
+    
+    
+    func stripHTML() -> NSString {
+        return self.replacingOccurrences(of: htmlReplaceString, with: "", options: NSString.CompareOptions.regularExpression, range: NSRange(location: 0,length: self.length)) as NSString
+    }
+}
+
+extension String {
+    /**
+     Takes the current String struct and strips out HTML using regular expression. All tags get stripped out.
+     
+     :returns: String html text as plain text
+     */
+    func stripHTML() -> String {
+        return self.replacingOccurrences(of: htmlReplaceString, with: "", options: NSString.CompareOptions.regularExpression, range: nil)
+    }
 }

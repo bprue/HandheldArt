@@ -22,7 +22,7 @@ class MainViewController: UITableViewController {
         
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
-            menuButton.action = "revealToggle:"
+            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         
@@ -34,16 +34,16 @@ class MainViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.count()
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("expandingCell", forIndexPath: indexPath) as! ExpandingCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "expandingCell", for: indexPath) as! ExpandingCell
         
-        cell.title = viewModel.titleForRow(indexPath.row)
-        cell.detail = viewModel.detailForRow(indexPath.row)
+        cell.title = viewModel.titleForRow((indexPath as NSIndexPath).row)
+        cell.detail = viewModel.detailForRow((indexPath as NSIndexPath).row)
         
         return cell
     }
@@ -52,13 +52,13 @@ class MainViewController: UITableViewController {
     
     
     
-    override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         
-        if let selectedIndex = tableView.indexPathForSelectedRow where selectedIndex == indexPath {
+        if let selectedIndex = tableView.indexPathForSelectedRow , selectedIndex == indexPath {
             
-            if let cell = tableView.cellForRowAtIndexPath(indexPath) as? ExpandingCell {
+            if let cell = tableView.cellForRow(at: indexPath) as? ExpandingCell {
                 tableView.beginUpdates()
-                tableView.deselectRowAtIndexPath(indexPath, animated: true)
+                tableView.deselectRow(at: indexPath, animated: true)
                 cell.changeCellStatus(false)
                 tableView.endUpdates()
             }
@@ -69,17 +69,17 @@ class MainViewController: UITableViewController {
         return indexPath
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let cell = tableView.cellForRowAtIndexPath(indexPath) as! ExpandingCell
+        let cell = tableView.cellForRow(at: indexPath) as! ExpandingCell
         cell.changeCellStatus(true)
         self.tableView.beginUpdates()
         self.tableView.endUpdates()
     }
     
-    override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         
-        if let cell = tableView.cellForRowAtIndexPath(indexPath) as? ExpandingCell {
+        if let cell = tableView.cellForRow(at: indexPath) as? ExpandingCell {
             cell.changeCellStatus(false)
             self.tableView.beginUpdates()
             self.tableView.endUpdates()

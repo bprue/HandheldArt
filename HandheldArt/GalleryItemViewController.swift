@@ -1,26 +1,24 @@
 //
-//  SubViewController2.swift
+//  GalleryItemViewController.swift
 //  HandheldArt
 //
-//  Created by CDH on 3/25/16.
+//  Created by Elizabeth Pruett on 10/27/16.
 //  Copyright © 2016 CDH. All rights reserved.
 //
 
 import UIKit
 
-class SubViewController2: UIViewController {
+class GalleryItemViewController: UIViewController {
 
-    @IBOutlet weak var menuButton: UIBarButtonItem!
-
+    @IBOutlet weak var galleryItemImageView: UIImageView!
+    
+    var image = UIImage()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if self.revealViewController() != nil {
-            menuButton.target = self.revealViewController()
-            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
-            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        }
-        // Do any additional setup after loading the view.
+        self.galleryItemImageView.image = self.image
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,7 +31,7 @@ class SubViewController2: UIViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }

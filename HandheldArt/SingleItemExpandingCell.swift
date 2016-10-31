@@ -22,23 +22,23 @@ class SingleItemExpandingCell: UITableViewCell {
         }
     }
     
-    @IBOutlet private weak var stackView: UIStackView!
-    @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var detailLabel: UILabel!
+    @IBOutlet fileprivate weak var stackView: UIStackView!
+    @IBOutlet fileprivate weak var titleLabel: UILabel!
+    @IBOutlet fileprivate weak var detailLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        stackView.arrangedSubviews.last?.hidden = true
+        stackView.arrangedSubviews.last?.isHidden = true
     }
     
-    func changeCellStatus(selected: Bool){
-        UIView.animateWithDuration(0.5,
+    func changeCellStatus(_ selected: Bool){
+        UIView.animate(withDuration: 0.5,
                                    delay: 0,
                                    usingSpringWithDamping: 1,
                                    initialSpringVelocity: 1,
-                                   options: UIViewAnimationOptions.CurveEaseIn,
+                                   options: UIViewAnimationOptions.curveEaseIn,
                                    animations: { () -> Void in
-                                    self.stackView.arrangedSubviews.last?.hidden = !selected
+                                    self.stackView.arrangedSubviews.last?.isHidden = !selected
             },
                                    completion: nil)
         
@@ -51,17 +51,17 @@ class SingleItemExpandingCell: UITableViewCell {
 
 struct SingleItemViewModel {
     
-    private let items = SingleItemSimpleStore.singleItemItems()
+    fileprivate let items = SingleItemSimpleStore.singleItemItems()
     
     func count() -> Int {
         return items.count
     }
     
-    func titleForRow(row: Int) -> String {
+    func titleForRow(_ row: Int) -> String {
         return items[row].title
     }
     
-    func detailForRow(row: Int) -> String {
+    func detailForRow(_ row: Int) -> String {
         return items[row].detail
     }
 }

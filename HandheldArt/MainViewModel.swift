@@ -10,17 +10,17 @@ import UIKit
 
 struct MainViewModel {
     
-    private let items = SimpleItemStore.defaultItems()
+    fileprivate let items = SimpleItemStore.defaultItems()
     
     func count() -> Int {
         return items.count
     }
     
-    func titleForRow(row: Int) -> String {
+    func titleForRow(_ row: Int) -> String {
         return items[row].title
     }
     
-    func detailForRow(row: Int) -> String {
+    func detailForRow(_ row: Int) -> String {
         return items[row].detail
     }
 }

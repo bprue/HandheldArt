@@ -31,7 +31,7 @@ class OurTableViewController3: UITableViewController {
         
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
-            menuButton.action = "revealToggle:"
+            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
 
@@ -42,7 +42,7 @@ class OurTableViewController3: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
-        func viewDidAppear(animated: Bool) {
+        func viewDidAppear(_ animated: Bool) {
             super.viewDidAppear(animated)
             tableView.reloadData()
         }
@@ -52,20 +52,20 @@ class OurTableViewController3: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return glossaryTerms.count
     }
 
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let row = indexPath.row //get the array index from the index path
-        let cell = tableView.dequeueReusableCellWithIdentifier("customcell", forIndexPath: indexPath)
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let row = (indexPath as NSIndexPath).row //get the array index from the index path
+        let cell = tableView.dequeueReusableCell(withIdentifier: "customcell", for: indexPath)
         
         let myRowKey = typeList[row] //the dictionary key
         cell.textLabel?.text = myRowKey

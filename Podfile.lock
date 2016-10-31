@@ -1,27 +1,26 @@
 PODS:
-  - Alamofire (3.2.1)
+  - Alamofire (4.0.1)
   - ExpandingTableView (1.0.1)
-  - SwiftyJSON (2.3.2)
+  - Kanna (2.0.0)
+  - SDWebImage (3.8.1):
+    - SDWebImage/Core (= 3.8.1)
+  - SDWebImage/Core (3.8.1)
+  - SwiftyJSON (3.1.1)
 
 DEPENDENCIES:
-  - Alamofire (~> 3.2.1)
+  - Alamofire (~> 4.0)
   - ExpandingTableView
-  - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
-
-EXTERNAL SOURCES:
-  SwiftyJSON:
-    :git: https://github.com/SwiftyJSON/SwiftyJSON.git
-
-CHECKOUT OPTIONS:
-  SwiftyJSON:
-    :commit: 73670b94292b8d8496c398a973f56ac67789ba9f
-    :git: https://github.com/SwiftyJSON/SwiftyJSON.git
+  - Kanna (~> 2.0.0)
+  - SDWebImage (~> 3.8)
+  - SwiftyJSON
 
 SPEC CHECKSUMS:
-  Alamofire: f11d8624a05f5d39e0c99309b3e600a3ba64298a
+  Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
   ExpandingTableView: 0f50e5f764c18fd3a1659b6c823738764fd3775b
-  SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
+  Kanna: 9a6637f72f5c77fe9c045b1efb2a5bb074754af8
+  SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
+  SwiftyJSON: f0be2e604f83e8405a624e9f891898bf6ed4e019
 
-PODFILE CHECKSUM: 5e12a638dc4005b9b3f812ffbde6d93e117dd35f
+PODFILE CHECKSUM: bf1b80bcae384c45ef977457b0194c5ba917dbc5
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.1.1
