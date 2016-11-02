@@ -25,7 +25,7 @@ class OurTableViewController: UITableViewController {
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
         //This gets the Collection names that will be used for cells
-        //Currently, it gets anything under the "text" key- but we will only want the names of collections..
+
         let urlString = "http://handheldart.org/api/collections/"
         if let url = URL(string: urlString) {
             if let data = try? Data(contentsOf: url, options: []) {
@@ -108,7 +108,49 @@ class OurTableViewController: UITableViewController {
     }
 
 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        self.performSegue(withIdentifier: "collectionSegue", sender: self)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "collectionSegue"
+        {
+            
+            let tabBarDestination = segue.destination as? CollectionTabBarController
+            
+            
+            //goes to Nav Controller for Collection Description
+            let collectionNav = tabBarDestination?.viewControllers?.first as! UINavigationController
+            
+            //Goes to EndIdeaDescription ViewController
+            let collectionController = collectionNav.topViewController as! CollectionDescViewController
+            
+            let collectionGalleryNav = tabBarDestination?.viewControllers?.last as! UINavigationController
+            
+            let collGalleryController = collectionGalleryNav.topViewController as! CollectionGalleryViewController
+            
+            if let myIndex = (tableView.indexPathForSelectedRow as NSIndexPath?)?.row
+            {
+                let object = objects[myIndex]
+                let endIdeaName = object["text"]!
+                let endIdeaURL = object["itemsURL"]!
+                collectionController.passName = endIdeaName
+                collectionController.passURL = endIdeaURL
+                
+                collectionController.descText = "Here there will be a description of the collection. Coming soon!"
+                
+                collGalleryController.passName = endIdeaName
+                collGalleryController.passURL = endIdeaURL
+                
+                
+            }
+            
+        }
+    }
 //
+
 //    // MARK: - Table view data source
 //
 //    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {

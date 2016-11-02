@@ -32,6 +32,8 @@ class SubViewController3: UIViewController {
         
         let urlString = passURL
         print (urlString)
+        
+
         if let url = URL(string: urlString!) {
             if let data = try? Data(contentsOf: url, options: []) {
                 let json = JSON(data: data)
@@ -48,7 +50,6 @@ class SubViewController3: UIViewController {
             }
         }
         
-
 
     
         if self.revealViewController() != nil {
