@@ -1,30 +1,19 @@
 //
-//  GalleryItemViewController.swift
+//  CollectionTabBarController.swift
 //  HandheldArt
 //
-//  Created by Elizabeth Pruett on 10/27/16.
+//  Created by Elizabeth Pruett on 11/2/16.
 //  Copyright © 2016 CDH. All rights reserved.
 //
 
 import UIKit
 
-class GalleryItemViewController: UIViewController {
-    
-    var passImageURL:URL!
-    
+class CollectionTabBarController: UITabBarController {
 
-    @IBOutlet weak var galleryItemImageView: UIImageView!
-    
-    var image = UIImage()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        galleryItemImageView.sd_setImage(with: passImageURL)
-        
-        //collectionItemImageView.sd_setImage(with: passImageURL)
-        //self.galleryItemImageView.image = self.image
-        
+        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
