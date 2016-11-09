@@ -15,39 +15,38 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
     var passURL:String!
     var objects = [[String: String]]()
     var gallery = [[String: URL]]()
+    var dataForCellsNotLoaded:Bool = true
 
     
     @IBOutlet weak var collectionView: UICollectionView!
 
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       // activityIndicator.startAnimating();
         
-        //in here is getting file urls and such from API -- fix later...
-        
-        let urlString = passURL
-        
-        parseJson(urlString: urlString!)
-        
-        //call getImageURLS function
-        
-        
-        // Do any additional setup after loading the view.
-        
-        getImageURLs(objects: objects)
+        activityIndicator.startAnimating()
 
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
         print ("View Did Appear *************")
 
+        if (dataForCellsNotLoaded)
+        {
+            let urlString = passURL
+        
+            parseJson(urlString: urlString!)
+        
+            getImageURLs(objects: objects)
+        
+            collectionView.reloadData()
+            
+            dataForCellsNotLoaded = false
+        }
     }
-    
-
     
     
     func parseJson(urlString: String)
@@ -78,7 +77,6 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
                     
                     let fileURL = attachment["file"]["url"].stringValue
                     
-                    
                     let obj = ["id": id, "fileURL": fileURL]
                     
                     objects.append(obj)
@@ -92,7 +90,6 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
         print ("GETTING IMAGE URLS")
         for obj in objects
         {
-            
             
             let fURL = obj["fileURL"]
             print (fURL)
@@ -121,7 +118,11 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
         
         print ("GETIMAGEURLS GALLERY COUNT IS ")
         print (gallery.count)
-       // activityIndicator.stopAnimating();
+        activityIndicator.stopAnimating()
+        activityIndicator.removeFromSuperview()
+        print ("activityIndicator removed from SuperView")
+        
+        //collectionView.reloadData()
         
     }
     override func didReceiveMemoryWarning() {
@@ -140,8 +141,6 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
         
         print ("SETTING CELL IMAGE")
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! GalleryCollCell
-        
-            //cell.imageView.image = self.tempPhotos[indexPath.row]
         
             let imgURL = gallery[indexPath.row]["thumbnailURL"]
         
@@ -165,10 +164,13 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
             
             let vc = segue.destination as! GalleryItemViewController
             
-            //vc.image = self.tempPhotos[indexPath.row]!
-            
+            vc.passImageURL = gallery[indexPath.row]["originalURL"]
             
         }
     }
+    
+
+    
+
 
 }

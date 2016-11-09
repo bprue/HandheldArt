@@ -17,34 +17,36 @@ class CollectionGalleryViewController: UIViewController, UICollectionViewDelegat
     var passURL:String!
     var objects = [[String: String]]()
     var gallery = [[String: URL]]()
+    var dataForCellsNotLoaded:Bool = true
     
     @IBOutlet weak var collectionView: UICollectionView!
 
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // activityIndicator.startAnimating();
-        
-        //in here is getting file urls and such from API -- fix later...
-        
-        let urlString = passURL
-        
-        print("HEYHEY")
-        print(urlString)
-        
-        parseJson(urlString: urlString!)
-        
-        //call getImageURLS function
-        
-        
-        // Do any additional setup after loading the view.
-        
-        getImageURLs(objects: objects)
-        
+        activityIndicator.startAnimating();
+
         
     }
     
-    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print ("View Did Appear *************")
+        
+        if (dataForCellsNotLoaded)
+        {
+            let urlString = passURL
+            
+            parseJson(urlString: urlString!)
+            
+            getImageURLs(objects: objects)
+            
+            collectionView.reloadData()
+            
+            dataForCellsNotLoaded = false
+        }
+    }
     
     func parseJson(urlString: String)
     {
@@ -108,7 +110,7 @@ class CollectionGalleryViewController: UIViewController, UICollectionViewDelegat
         
         print ("GETIMAGEURLS GALLERY COUNT IS ")
         print (gallery.count)
-        // activityIndicator.stopAnimating();
+        activityIndicator.stopAnimating();
         
     }
     override func didReceiveMemoryWarning() {
@@ -141,12 +143,15 @@ class CollectionGalleryViewController: UIViewController, UICollectionViewDelegat
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print ("doing stuff here as well")
         self.performSegue(withIdentifier: "showCollectionItem", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         if segue.identifier == "showCollectionItem"
         {
+            print ("doing this here")
             let indexPaths = self.collectionView!.indexPathsForSelectedItems!
             
             let indexPath = indexPaths[0] as! NSIndexPath

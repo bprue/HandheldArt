@@ -669,6 +669,10 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                                 </collectionViewFlowLayout>
+                                <activityIndicatorView key="backgroundView" hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" id="WmG-p0-iAw">
+                                    <rect key="frame" x="169" y="251" width="37" height="37"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </activityIndicatorView>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="Ohc-jo-gt1" customClass="GalleryCollCell" customModule="HandheldArt" customModuleProvider="target">
                                         <rect key="frame" x="10" y="10" width="170" height="170"/>
@@ -707,6 +711,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Wap-bl-SUo"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="WmG-p0-iAw" id="r2g-sx-S3z"/>
                         <outlet property="collectionView" destination="DjX-dE-hPZ" id="X2k-rV-krw"/>
                         <segue destination="SAP-Sf-DW5" kind="show" identifier="showSingleItem" id="3sB-a0-V6l"/>
                     </connections>
@@ -1325,7 +1330,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qyn-7Q-WBH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4336.8000000000002" y="1491.9040479760122"/>
+            <point key="canvasLocation" x="4686" y="1464"/>
         </scene>
         <!--Collection Tab Bar Controller-->
         <scene sceneID="FQ7-KW-oSG">
@@ -1422,7 +1427,6 @@
                                         </constraints>
                                         <connections>
                                             <outlet property="imageView" destination="KXI-RX-b22" id="5e1-Cu-gCr"/>
-                                            <segue destination="dgf-Mg-PGG" kind="show" identifier="showCollectionItem" id="T3I-HT-Yu9"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -1431,6 +1435,10 @@
                                     <outlet property="delegate" destination="fDS-Ea-VtP" id="lvF-y4-77a"/>
                                 </connections>
                             </collectionView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="mQK-ez-bjS">
+                                <frame key="frameInset" minX="169" minY="315" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1442,7 +1450,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="W7U-us-sZs"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="mQK-ez-bjS" id="hgI-rt-efm"/>
                         <outlet property="collectionView" destination="HDs-bN-u0H" id="if3-kT-isi"/>
+                        <segue destination="dgf-Mg-PGG" kind="show" identifier="showCollectionItem" id="2kz-bj-s8N"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qcZ-lM-WL1" userLabel="First Responder" sceneMemberID="firstResponder"/>

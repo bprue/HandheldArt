@@ -9,6 +9,9 @@
 import UIKit
 
 class GalleryItemViewController: UIViewController {
+    
+    var passImageURL:URL!
+    
 
     @IBOutlet weak var galleryItemImageView: UIImageView!
     
@@ -17,7 +20,10 @@ class GalleryItemViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.galleryItemImageView.image = self.image
+        galleryItemImageView.sd_setImage(with: passImageURL)
+        
+        //collectionItemImageView.sd_setImage(with: passImageURL)
+        //self.galleryItemImageView.image = self.image
         
     }
 
