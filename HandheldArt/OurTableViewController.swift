@@ -55,6 +55,9 @@ class OurTableViewController: UITableViewController {
         
         for result in json.arrayValue {
             //gets collection ID
+            
+            var givenTitle:String!
+            var givenDesc:String!
             let givenID = result["id"].stringValue
 
             //gets url of all items in 
@@ -70,11 +73,17 @@ class OurTableViewController: UITableViewController {
                 //checks to make sure the text we are getting is the title of a collection
                 if (elementType == "Title")
                 {
-                    let obj = ["id": givenID, "itemsURL": itemsURL, "text": givenText]
-                    objects.append(obj)
+                    givenTitle = givenText
+                }
+                if (elementType == "Description")
+                {
+                    givenDesc = givenText
                 }
 
             }
+            
+            let obj = ["id": givenID, "itemsURL": itemsURL, "text": givenTitle, "desc": givenDesc]
+            objects.append(obj as! [String : String])
             
 
         }
@@ -139,7 +148,7 @@ class OurTableViewController: UITableViewController {
                 collectionController.passName = endIdeaName
                 collectionController.passURL = endIdeaURL
                 
-                collectionController.descText = "Here there will be a description of the collection. Coming soon!"
+                collectionController.descText = object["desc"]!
                 
                 collGalleryController.passName = endIdeaName
                 collGalleryController.passURL = endIdeaURL
@@ -151,58 +160,5 @@ class OurTableViewController: UITableViewController {
     }
 //
 
-//    // MARK: - Table view data source
-//
-//    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 0
-//    }
-//
-
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

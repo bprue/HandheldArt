@@ -12,6 +12,7 @@ class CollGalleryItemViewController: UIViewController {
     
     var passImageURL:URL!
 
+
     @IBOutlet weak var collectionItemImageView: UIImageView!
     
     override func viewDidLoad() {

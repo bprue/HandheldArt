@@ -92,6 +92,7 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
         {
             
             let fURL = obj["fileURL"]
+            print ("IM HERE!!")
             print (fURL)
             
             if let xurl = URL(string: fURL!)
@@ -108,8 +109,9 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
                     
                     let thumbnailURL = json["file_urls"]["square_thumbnail"].URL
                     
+                    let itemURL = json["item"]["url"].URL
                     
-                    let galObj = ["originalURL" : originalURL, "thumbnailURL" : thumbnailURL]
+                    let galObj = ["originalURL" : originalURL, "thumbnailURL" : thumbnailURL, "itemURL" : itemURL]
                     
                     gallery.append(galObj as! [String : URL])
                 }
@@ -165,6 +167,11 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
             let vc = segue.destination as! GalleryItemViewController
             
             vc.passImageURL = gallery[indexPath.row]["originalURL"]
+            
+            vc.passItemURL = gallery[indexPath.row]["itemURL"]
+            
+            print("%%%%%%")
+            print(gallery[indexPath.row]["itemURL"])
             
         }
     }
