@@ -38,6 +38,9 @@ class CollectionGalleryViewController: UIViewController, UICollectionViewDelegat
         {
             let urlString = passURL
             
+            print("HOOPLAH")
+            print(passURL)
+            
             parseJson(urlString: urlString!)
             
             getImageURLs(objects: objects)
@@ -82,6 +85,7 @@ class CollectionGalleryViewController: UIViewController, UICollectionViewDelegat
             
             obj = objects[index]
             let fURL = obj["filesURL"]
+            print ("IM HERE!!")
             print (fURL)
             
             if let xurl = URL(string: fURL!)
@@ -99,6 +103,7 @@ class CollectionGalleryViewController: UIViewController, UICollectionViewDelegat
                     print("************")
                     
                     let thumbnailURL = result["file_urls"]["square_thumbnail"].URL
+                        
                     
                     let galObj = ["originalURL" : originalURL, "thumbnailURL" : thumbnailURL]
                     
@@ -160,9 +165,9 @@ class CollectionGalleryViewController: UIViewController, UICollectionViewDelegat
             
             vc.passImageURL = gallery[indexPath.row]["originalURL"]
             
-            //vc.collectionItemImageView.sd_setImage(with: passImageURL)
+            vc.passItemURL = objects[indexPath.row]["itemURL"] 
             
-            //vc.image = self.tempPhotos[indexPath.row]!
+
             
             
         }
