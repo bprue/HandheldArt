@@ -21,16 +21,17 @@ class SubViewController3: UIViewController {
     @IBOutlet weak var EnduringIdeaDesc: UILabel!
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
-    var labels = [String: UILabel]()
-    var strings = [String]()
+    //var strings = [String]()
     var objects = [[String: String]]()
     var descText:String!
     var descTextWHTML:String!
+    var unitPlanFileURL:String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let urlString = passURL
+        print("weensaw")
         print (urlString)
         
 
@@ -43,53 +44,77 @@ class SubViewController3: UIViewController {
                 descTextWHTML = pageBlock!["text"].stringValue
 
                 //parse out the HTML tags
+                
+                /**
+                * Searches the entire HTML tagged text for url (will get the unit plan urls)
+                */
+                let types: NSTextCheckingResult.CheckingType = .link
+                let detector = try? NSDataDetector(types: types.rawValue)
+                guard let detect = detector else {
+                    return
+                }
+                
+                let matches = detect.matches(in: descTextWHTML, options: .reportCompletion, range: NSMakeRange(0, descTextWHTML.characters.count))
+                
+                for match in matches {
+                    print(match.url!)
+                    
+                    //here, want to grab the item number for each unit plan...so need to convert match.url! to string??
+                    
+                    let path:String = match.url!.path
+                    let index = path.index(path.startIndex, offsetBy: 12)
+                    let itemNumber:String = path.substring(from: index)
+
+                    print(itemNumber)
+                    
+                    //now need to go to http://handheldart.cas.sc.edu/api/files?item=itemNumber
+                    
+                    unitPlanFileURL = "http://handheldart.cas.sc.edu/api/files?item=" + itemNumber
+                    
+                    
+                }
+                
+                
+                //removes all the tags and such
                 descText = descTextWHTML.stripHTML()
 
-                
-
+            }
+            
+            
+            
+            if let url = URL(string: unitPlanFileURL!) {
+                if let data = try? Data(contentsOf: url, options: []) {
+                    let json = JSON(data: data)
+                    
+                    for result in json.arrayValue
+                    {
+                        print("HARRY POTER")
+                        let pdfURL = result["file_urls"]["original"].URL
+                        
+                        //webView.loadRequest(NSURLRequest(URL: pdfURL))
+                    
+                    }
+                }
             }
         }
         
 
-    
+        /**
+         * Code for the lefthand navigation bar
+        */
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
             menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
       
         
-        // Do any additional setup after loading the view.
+            self.EnduringIdeaTitle.text = passName
         
-        self.EnduringIdeaTitle.text = passName
-        
-        //let object = objects[0]
-        self.EnduringIdeaDesc.text = descText
+            //let object = objects[0]
+            self.EnduringIdeaDesc.text = descText
     
-        
-    
-    }
-    
-
-    /**
-    func parseJSON(json: JSON) {
-        for result in json.arrayValue {
-            //let _ = result["id"].stringValue
-            //let _ = result["url"].stringValue
-            //let _ = result["title"].stringValue
-            
-            let pageBlocks = result["page_blocks"].arrayValue
-            
-            let firstPageBlock = pageBlocks.first
-            
-            let descText = firstPageBlock!["text"].stringValue
-            
-            let obj = ["Desc" : descText]
-            //print (tagName)
-            objects.append(obj)
         }
-        **/
-        
-        //tableView.reloadData()
+
     }
     
 
@@ -100,22 +125,17 @@ class SubViewController3: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 /**
  The html replacement regular expression
  */
-let     htmlReplaceString   :   String  =   "<[^>]+>"
+
+
+
+
+
+let htmlReplaceString   :   String  =   "<[^>]+>"
 
 extension NSString {
     /**
@@ -126,6 +146,8 @@ extension NSString {
     
     
     func stripHTML() -> NSString {
+
+        
         return self.replacingOccurrences(of: htmlReplaceString, with: "", options: NSString.CompareOptions.regularExpression, range: NSRange(location: 0,length: self.length)) as NSString
     }
 }
