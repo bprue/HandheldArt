@@ -14,15 +14,20 @@ import SwiftyJSON
 import Alamofire
 import Foundation
 
-class SubViewController3: UIViewController {
+class SubViewController3: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var passName:String!
     var passURL:String!
+    var valueToPass:String!
     @IBOutlet weak var EnduringIdeaTitle: UILabel!
     @IBOutlet weak var EnduringIdeaDesc: UILabel!
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
+    @IBOutlet weak var tableView: UITableView!
+    
+    
     //var strings = [String]()
     var objects = [[String: String]]()
+    var unitPlans = [[String: String]]()
     var descText:String!
     var descTextWHTML:String!
     var unitPlanFileURL:String!
@@ -57,6 +62,7 @@ class SubViewController3: UIViewController {
                 let matches = detect.matches(in: descTextWHTML, options: .reportCompletion, range: NSMakeRange(0, descTextWHTML.characters.count))
                 
                 for match in matches {
+                    print("sup")
                     print(match.url!)
                     
                     //here, want to grab the item number for each unit plan...so need to convert match.url! to string??
@@ -71,6 +77,24 @@ class SubViewController3: UIViewController {
                     
                     unitPlanFileURL = "http://handheldart.cas.sc.edu/api/files?item=" + itemNumber
                     
+                    //since there may be more than one, need to collect em all 
+                    if let url = URL(string: unitPlanFileURL!) {
+                        if let data = try? Data(contentsOf: url, options: []) {
+                            let json = JSON(data: data)
+                            
+                            for result in json.arrayValue
+                            {
+                                print("HARRY POTER")
+                                let pdfURL = result["file_urls"]["original"].stringValue
+                                let unitPlanName = result["original_filename"].stringValue
+                                
+                                let unitP = ["planName": unitPlanName, "pdfURL": pdfURL]
+                                unitPlans.append(unitP)
+                                
+                            }
+                        }
+                    }
+                    
                     
                 }
                 
@@ -81,21 +105,8 @@ class SubViewController3: UIViewController {
             }
             
             
-            
-            if let url = URL(string: unitPlanFileURL!) {
-                if let data = try? Data(contentsOf: url, options: []) {
-                    let json = JSON(data: data)
-                    
-                    for result in json.arrayValue
-                    {
-                        print("HARRY POTER")
-                        let pdfURL = result["file_urls"]["original"].URL
-                        
-                        //webView.loadRequest(NSURLRequest(URL: pdfURL))
-                    
-                    }
-                }
-            }
+            tableView.reloadData()
+
         }
         
 
@@ -117,23 +128,72 @@ class SubViewController3: UIViewController {
 
     }
     
+    
+    
 
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print ("hooplah!!")
+        print (unitPlans.count)
+        return unitPlans.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "eiCell", for: indexPath)
+        
+        let uPlan = unitPlans[indexPath.row]
+        cell.textLabel?.text = uPlan["planName"]
+        
+        return cell
     }
     
 
+    /**
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "eiCell", for: indexPath)
+        
+        let uPlan = unitPlans[indexPath.row]
+        valueToPass = uPlan["pdfURL"]
+        print("chips1")
+        print(valueToPass)
+        
+        //(withIdentifier: "openPDF", sender: self)
+        
+    }**/
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        
+        
+        if (segue.identifier == "openPDF")
+        {
+            let vc = segue.destination as! UnitPlanViewController
+            
+            let selectedRow = tableView.indexPathForSelectedRow!.row
+            
+            let uPlan = unitPlans[selectedRow]
+            
+            valueToPass = uPlan["pdfURL"]
+        
+            print("chips2")
+            print(valueToPass)
+            vc.myURLString = valueToPass
+        }
+    }
+
 }
+
+
+
+
 
 /**
  The html replacement regular expression
  */
-
-
-
-
 
 let htmlReplaceString   :   String  =   "<[^>]+>"
 
