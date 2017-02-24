@@ -19,12 +19,22 @@ class GalleryItemViewController: UIViewController {
 
     @IBOutlet weak var galleryItemImageView: UIImageView!
     @IBOutlet weak var metadata: UILabel!
+    @IBAction func downloadImage(_ sender: UIButton) {
+        UIImageWriteToSavedPhotosAlbum(galleryItemImageView.image!, nil, nil, nil)
+        
+        let alertController = UIAlertController(title: "Handheld Art", message:
+            "Image saved to device!", preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "Continue", style: UIAlertActionStyle.default,handler: nil))
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
     
     var image = UIImage()
     var objects = [[String: String]]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 
         galleryItemImageView.sd_setImage(with: passImageURL)
         
@@ -37,7 +47,8 @@ class GalleryItemViewController: UIViewController {
                 
             parseJSON(json)
         
-            metadata.text = allMetadata
+            metadata.text = allMetadata + "\n\n"
+
         
         
             print("Final text should be")

@@ -16,6 +16,7 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
     var objects = [[String: String]]()
     var gallery = [[String: URL]]()
     var dataForCellsNotLoaded:Bool = true
+    var loadedItemSet = Set<String>()
 
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -40,12 +41,13 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
         
             parseJson(urlString: urlString!)
         
-            getImageURLs(objects: objects)
+           // getImageURLs(objects: objects)
         
             collectionView.reloadData()
             
             dataForCellsNotLoaded = false
         }
+        activityIndicator.stopAnimating()
     }
     
     
@@ -85,6 +87,8 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
         }
         
     }
+    
+    /**
     func getImageURLs(objects: [[String: String]])
     {
         print ("GETTING IMAGE URLS")
@@ -126,7 +130,9 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
         
         //collectionView.reloadData()
         
-    }
+    }**/
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -134,9 +140,9 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
     
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print ("GALLERY COUNT IS ")
-        print (gallery.count)
-        return gallery.count
+        print ("OBJECTS COUNT IS ")
+        print (objects.count)
+        return objects.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -144,10 +150,48 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
         print ("SETTING CELL IMAGE")
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! GalleryCollCell
         
-            let imgURL = gallery[indexPath.row]["thumbnailURL"]
         
-        print ("***")
-            cell.imageView.sd_setImage(with: imgURL)
+        let obj = objects[indexPath.row]
+        let fURL = obj["fileURL"]
+        print ("hey hereis fURL")
+        print (fURL)
+        
+        if (!loadedItemSet.contains(fURL!))
+        {
+            if let xurl = URL(string: fURL!)
+            {
+                if let data = try? Data(contentsOf: xurl, options: [])
+                {
+                    let json = JSON(data: data)
+                    
+                    
+                    let originalURL = json["file_urls"]["original"].URL
+                    
+                    // print(originalURL)
+                    //print("************")
+                    
+                    let thumbnailURL = json["file_urls"]["square_thumbnail"].URL
+                    
+                    let itemURL = json["item"]["url"].URL
+                    
+                    let galObj = ["originalURL" : originalURL, "thumbnailURL" : thumbnailURL, "itemURL" : itemURL]
+                    
+                    gallery.append(galObj as! [String : URL])
+                        loadedItemSet.insert(fURL!)
+                    }
+                }
+        }
+
+    
+        
+        let imgURL = gallery[indexPath.row]["thumbnailURL"]
+        
+        cell.imageView.sd_setImage(with: imgURL, placeholderImage: UIImage(named: "hhahand"))
+
+            //let imgURL = gallery[indexPath.row]["thumbnailURL"]
+        
+        //print ("***")
+            //cell.imageView.sd_setImage(with: imgURL)
         
         return cell
         

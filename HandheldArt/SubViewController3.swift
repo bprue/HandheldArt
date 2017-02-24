@@ -100,7 +100,13 @@ class SubViewController3: UIViewController, UITableViewDelegate, UITableViewData
                 
                 
                 //removes all the tags and such
+                print ("Hey here is descTextWHTML 123")
+                print (descTextWHTML)
+                
                 descText = descTextWHTML.stripHTML()
+                descText = descText.removeBlanks()
+                print ("Hey here is descText 456")
+                print (descText)
 
             }
             
@@ -194,7 +200,7 @@ class SubViewController3: UIViewController, UITableViewDelegate, UITableViewData
 /**
  The html replacement regular expression
  */
-
+let emptyReplaceString:String = "<p> </p>"
 let htmlReplaceString   :   String  =   "<[^>]+>"
 
 extension NSString {
@@ -218,6 +224,10 @@ extension String {
      
      :returns: String html text as plain text
      */
+    
+    func removeBlanks() -> String {
+        return self.replacingOccurrences(of: "^\\s*", with: "", options: .regularExpression)
+    }
     func stripHTML() -> String {
         return self.replacingOccurrences(of: htmlReplaceString, with: "", options: NSString.CompareOptions.regularExpression, range: nil)
     }
