@@ -42,10 +42,13 @@
 	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
+		<string>Privacy - Photo Library Usage Description</string>
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Saves photo to your device</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

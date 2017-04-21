@@ -91,7 +91,7 @@ class OurCollectionViewController: UICollectionViewController {
         {
             print ("********************")
             
-            let vc = segue.destination as! GalleryItemViewController
+            //let vc = segue.destination as! GalleryItemViewController
             
             
             
