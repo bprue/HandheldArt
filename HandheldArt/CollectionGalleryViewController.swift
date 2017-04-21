@@ -146,7 +146,7 @@ class CollectionGalleryViewController: UIViewController, UICollectionViewDelegat
         {
             let indexPaths = self.collectionView!.indexPathsForSelectedItems!
             
-            let indexPath = indexPaths[0] as! NSIndexPath
+            let indexPath = indexPaths[0] as NSIndexPath
             
             let vc = segue.destination as! GalleryItemViewController
             

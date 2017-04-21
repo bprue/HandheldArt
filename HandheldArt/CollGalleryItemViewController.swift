@@ -54,12 +54,12 @@ class CollGalleryItemViewController: UIViewController {
         print("In parseJSON function")
         
         
-        var itemType = json["item_type"]["name"].stringValue
+        let itemType = json["item_type"]["name"].stringValue
         
         print(itemType)
         print("$$$")
         
-        var tags = json["tags"].arrayValue
+        let tags = json["tags"].arrayValue
         
         var allTags = [[String: String]]()
         
@@ -80,20 +80,20 @@ class CollGalleryItemViewController: UIViewController {
             
         }
         
-        var elementTexts = json["element_texts"].arrayValue
+        let elementTexts = json["element_texts"].arrayValue
         
         var metadataStuff = [[String: String]]()
         
         for elem in elementTexts
         {
             //text such as image's title, creator
-            var itemTex = elem["text"].stringValue
+            let itemTex = elem["text"].stringValue
             
             print("itemTex:")
             print(itemTex)
             
             //describes the above text (says whether it is a title, date)
-            var textType = elem["element"]["name"].stringValue
+            let textType = elem["element"]["name"].stringValue
             
             print("textType")
             print(textType)

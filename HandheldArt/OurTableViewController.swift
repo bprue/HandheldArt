@@ -12,6 +12,7 @@ import UIKit
 
 class OurTableViewController: UITableViewController {
 
+
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
     var labels = [String: UILabel]()
@@ -43,11 +44,7 @@ class OurTableViewController: UITableViewController {
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
     //Creates array 'objects' based on the desired components of the JSON data - which is acquired above from the URL

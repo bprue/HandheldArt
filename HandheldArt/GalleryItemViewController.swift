@@ -18,16 +18,10 @@ class GalleryItemViewController: UIViewController {
     
 
     @IBOutlet weak var galleryItemImageView: UIImageView!
+    
+    
     @IBOutlet weak var metadata: UILabel!
-    @IBAction func downloadImage(_ sender: UIButton) {
-        UIImageWriteToSavedPhotosAlbum(galleryItemImageView.image!, nil, nil, nil)
-        
-        let alertController = UIAlertController(title: "Handheld Art", message:
-            "Image saved to device!", preferredStyle: UIAlertControllerStyle.alert)
-        alertController.addAction(UIAlertAction(title: "Continue", style: UIAlertActionStyle.default,handler: nil))
-        
-        self.present(alertController, animated: true, completion: nil)
-    }
+
     
     var image = UIImage()
     var objects = [[String: String]]()
@@ -56,7 +50,20 @@ class GalleryItemViewController: UIViewController {
                 
         }
         
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+        galleryItemImageView.isUserInteractionEnabled = true
+        galleryItemImageView.addGestureRecognizer(tapGestureRecognizer)
         
+        
+    }
+    
+    func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
+    {
+        let tappedImage = tapGestureRecognizer.view as! UIImageView
+        
+        performSegue(withIdentifier: "popUpSegue", sender: self)
+        
+        // Your action
     }
 
     override func didReceiveMemoryWarning() {
@@ -69,8 +76,11 @@ class GalleryItemViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "popUpSegue"
         {
-            let vc = segue.destination as! PopUpViewController
             
+            let navCont = segue.destination as! UINavigationController
+            
+            let vc = navCont.topViewController as! PopUpViewController
+           
             vc.myImageURL = passImageURL
         }
 
@@ -127,12 +137,15 @@ class GalleryItemViewController: UIViewController {
             print("textType")
             print(textType)
             
+            if (textType != "Source" && textType != "Identifier")
+            {
             let meta = ["textType" : textType, "itemTex" : itemTex]
             
             
             allMetadata = allMetadata + textType + ": " + itemTex + "\n"
             
             metadataStuff.append(meta)
+            }
         }
         
 

@@ -28,7 +28,6 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
         
         activityIndicator.startAnimating()
 
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -153,8 +152,7 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
         
         let obj = objects[indexPath.row]
         let fURL = obj["fileURL"]
-        print ("hey hereis fURL")
-        print (fURL)
+
         
         if (!loadedItemSet.contains(fURL!))
         {
@@ -206,16 +204,13 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
         {
             let indexPaths = self.collectionView!.indexPathsForSelectedItems!
             
-            let indexPath = indexPaths[0] as! NSIndexPath
+            let indexPath = indexPaths[0] as NSIndexPath
             
             let vc = segue.destination as! GalleryItemViewController
             
             vc.passImageURL = gallery[indexPath.row]["originalURL"]
             
             vc.passItemURL = gallery[indexPath.row]["itemURL"]
-            
-            print("%%%%%%")
-            print(gallery[indexPath.row]["itemURL"])
             
         }
     }

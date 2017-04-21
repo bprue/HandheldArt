@@ -15,6 +15,10 @@ class UnitPlanViewController: UIViewController {
     var myURLString: String!
     
 
+    @IBAction func backButton(_ sender: Any) {
+        
+        self.dismiss(animated: true, completion: nil)
+    }
     
     
     override func viewDidLoad() {

@@ -40,6 +40,26 @@
 		7EC2B3DB1CA5D41700864B51 /* hha logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7EC2B3DA1CA5D41700864B51 /* hha logo.jpg */; };
 		7EC2B3DD1CA9A5A900864B51 /* OurTableViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC2B3DC1CA9A5A900864B51 /* OurTableViewController2.swift */; };
 		7EC2B3DF1CA9A83200864B51 /* SubViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC2B3DE1CA9A83200864B51 /* SubViewController3.swift */; };
+		CE2C69081DCA326100DB798D /* CollectionTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2C69071DCA326100DB798D /* CollectionTabBarController.swift */; };
+		CE2C690A1DCA336D00DB798D /* CollectionDescViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2C69091DCA336D00DB798D /* CollectionDescViewController.swift */; };
+		CE2C690C1DCA389300DB798D /* CollectionGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2C690B1DCA389300DB798D /* CollectionGalleryViewController.swift */; };
+		CE2C690E1DCA39FC00DB798D /* CollGalleryItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2C690D1DCA39FC00DB798D /* CollGalleryItemViewController.swift */; };
+		CE346D021DC2A45000797A18 /* GalleryItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE346D011DC2A45000797A18 /* GalleryItemViewController.swift */; };
+		CE346D091DC2B2C500797A18 /* thumbnail6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CE346D031DC2B2C500797A18 /* thumbnail6.jpg */; };
+		CE346D0A1DC2B2C500797A18 /* thumbnail5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CE346D041DC2B2C500797A18 /* thumbnail5.jpg */; };
+		CE346D0B1DC2B2C500797A18 /* thumbnail4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CE346D051DC2B2C500797A18 /* thumbnail4.jpg */; };
+		CE346D0C1DC2B2C500797A18 /* thumbnail3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CE346D061DC2B2C500797A18 /* thumbnail3.jpg */; };
+		CE346D0D1DC2B2C500797A18 /* thumbnail2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CE346D071DC2B2C500797A18 /* thumbnail2.jpg */; };
+		CE346D0E1DC2B2C500797A18 /* thumbnail1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CE346D081DC2B2C500797A18 /* thumbnail1.jpg */; };
+		CE346D101DC2D74700797A18 /* GalleryCollCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE346D0F1DC2D74700797A18 /* GalleryCollCell.swift */; };
+		CE346D121DC2D86300797A18 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE346D111DC2D86300797A18 /* GalleryViewController.swift */; };
+		CE4433F61DAEE24E0051CEC4 /* EndIdeaTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4433F51DAEE24E0051CEC4 /* EndIdeaTabBarController.swift */; };
+		CE45544A1E2412330093DAA4 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4554491E2412330093DAA4 /* PopUpViewController.swift */; };
+		CE5F443D1E4E0FE400DF689D /* UnitPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5F443C1E4E0FE400DF689D /* UnitPlanViewController.swift */; };
+		CE9324451DC12B64004EB736 /* GalleryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9324441DC12B64004EB736 /* GalleryViewCell.swift */; };
+		CE9D64331E5233C600D8E3ED /* EndIdeaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9D64321E5233C600D8E3ED /* EndIdeaTableViewController.swift */; };
+		CE9D64351E52340900D8E3ED /* EndIdeaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9D64341E52340900D8E3ED /* EndIdeaTableViewCell.swift */; };
+		CEF18A361E5FCB1D00BD753F /* AboutPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF18A351E5FCB1D00BD753F /* AboutPageViewController.swift */; };
 		CEFB133B1D6DE30A00C0E351 /* SidebarTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFB133A1D6DE30A00C0E351 /* SidebarTableViewController.swift */; };
 		CEFB133D1D6DF71400C0E351 /* Picture-50.png in Resources */ = {isa = PBXBuildFile; fileRef = CEFB133C1D6DF71400C0E351 /* Picture-50.png */; };
 		D9FF16C6CDDCFC5397B5118A /* Pods_HandheldArt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B14486050634B3D6BFC15B15 /* Pods_HandheldArt.framework */; };
@@ -106,6 +126,26 @@
 		7EC2B3DC1CA9A5A900864B51 /* OurTableViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OurTableViewController2.swift; sourceTree = "<group>"; };
 		7EC2B3DE1CA9A83200864B51 /* SubViewController3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubViewController3.swift; sourceTree = "<group>"; };
 		B14486050634B3D6BFC15B15 /* Pods_HandheldArt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HandheldArt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE2C69071DCA326100DB798D /* CollectionTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionTabBarController.swift; sourceTree = "<group>"; };
+		CE2C69091DCA336D00DB798D /* CollectionDescViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionDescViewController.swift; sourceTree = "<group>"; };
+		CE2C690B1DCA389300DB798D /* CollectionGalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionGalleryViewController.swift; sourceTree = "<group>"; };
+		CE2C690D1DCA39FC00DB798D /* CollGalleryItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollGalleryItemViewController.swift; sourceTree = "<group>"; };
+		CE346D011DC2A45000797A18 /* GalleryItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryItemViewController.swift; sourceTree = "<group>"; };
+		CE346D031DC2B2C500797A18 /* thumbnail6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = thumbnail6.jpg; sourceTree = "<group>"; };
+		CE346D041DC2B2C500797A18 /* thumbnail5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = thumbnail5.jpg; sourceTree = "<group>"; };
+		CE346D051DC2B2C500797A18 /* thumbnail4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = thumbnail4.jpg; sourceTree = "<group>"; };
+		CE346D061DC2B2C500797A18 /* thumbnail3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = thumbnail3.jpg; sourceTree = "<group>"; };
+		CE346D071DC2B2C500797A18 /* thumbnail2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = thumbnail2.jpg; sourceTree = "<group>"; };
+		CE346D081DC2B2C500797A18 /* thumbnail1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = thumbnail1.jpg; sourceTree = "<group>"; };
+		CE346D0F1DC2D74700797A18 /* GalleryCollCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryCollCell.swift; sourceTree = "<group>"; };
+		CE346D111DC2D86300797A18 /* GalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
+		CE4433F51DAEE24E0051CEC4 /* EndIdeaTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EndIdeaTabBarController.swift; path = ../EndIdeaTabBarController.swift; sourceTree = "<group>"; };
+		CE4554491E2412330093DAA4 /* PopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PopUpViewController.swift; path = ../PopUpViewController.swift; sourceTree = "<group>"; };
+		CE5F443C1E4E0FE400DF689D /* UnitPlanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitPlanViewController.swift; sourceTree = "<group>"; };
+		CE9324441DC12B64004EB736 /* GalleryViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GalleryViewCell.swift; path = ../Pods/GalleryViewCell.swift; sourceTree = "<group>"; };
+		CE9D64321E5233C600D8E3ED /* EndIdeaTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndIdeaTableViewController.swift; sourceTree = "<group>"; };
+		CE9D64341E52340900D8E3ED /* EndIdeaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndIdeaTableViewCell.swift; sourceTree = "<group>"; };
+		CEF18A351E5FCB1D00BD753F /* AboutPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutPageViewController.swift; sourceTree = "<group>"; };
 		CEFB133A1D6DE30A00C0E351 /* SidebarTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SidebarTableViewController.swift; sourceTree = "<group>"; };
 		CEFB133C1D6DF71400C0E351 /* Picture-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Picture-50.png"; sourceTree = "<group>"; };
 		D990640AA974ECED90B1BDC7 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -171,6 +211,7 @@
 		7EC2B3941CA59DC100864B51 = {
 			isa = PBXGroup;
 			children = (
+				CE346D0F1DC2D74700797A18 /* GalleryCollCell.swift */,
 				7EC2B39F1CA59DC100864B51 /* HandheldArt */,
 				7EC2B3B41CA59DC100864B51 /* HandheldArtTests */,
 				7EC2B3BF1CA59DC200864B51 /* HandheldArtUITests */,
@@ -200,14 +241,27 @@
 				7EC2B3A01CA59DC100864B51 /* AppDelegate.swift */,
 				7EC2B3A21CA59DC100864B51 /* ViewController.swift */,
 				7EC2B3A41CA59DC100864B51 /* Main.storyboard */,
+				CEF18A351E5FCB1D00BD753F /* AboutPageViewController.swift */,
+				CE9D64341E52340900D8E3ED /* EndIdeaTableViewCell.swift */,
+				CE9D64321E5233C600D8E3ED /* EndIdeaTableViewController.swift */,
+				CE5F443C1E4E0FE400DF689D /* UnitPlanViewController.swift */,
+				CE4554491E2412330093DAA4 /* PopUpViewController.swift */,
+				CE2C690D1DCA39FC00DB798D /* CollGalleryItemViewController.swift */,
+				CE2C690B1DCA389300DB798D /* CollectionGalleryViewController.swift */,
+				CE346D111DC2D86300797A18 /* GalleryViewController.swift */,
+				CE4433F51DAEE24E0051CEC4 /* EndIdeaTabBarController.swift */,
+				CE2C69071DCA326100DB798D /* CollectionTabBarController.swift */,
 				CEFB133A1D6DE30A00C0E351 /* SidebarTableViewController.swift */,
+				CE346D011DC2A45000797A18 /* GalleryItemViewController.swift */,
 				7E0CDF411CACD9DA00FCD011 /* OurTableViewController3.swift */,
 				7E9ACE1A1CA9C6B100840F03 /* SubViewController4.swift */,
 				7E9ACE1C1CA9C9AB00840F03 /* SubViewController5.swift */,
 				7E9ACE1E1CA9C9CC00840F03 /* SubViewController6.swift */,
 				7EC2B3DC1CA9A5A900864B51 /* OurTableViewController2.swift */,
 				7EC2B3DE1CA9A83200864B51 /* SubViewController3.swift */,
+				CE2C69091DCA336D00DB798D /* CollectionDescViewController.swift */,
 				7E9ACE181CA9B17B00840F03 /* OurCollectionViewController.swift */,
+				CE9324441DC12B64004EB736 /* GalleryViewCell.swift */,
 				7EC2B3D51CA5B31400864B51 /* OurTableViewController.swift */,
 				7EC2B3D71CA5C5EE00864B51 /* SubViewController2.swift */,
 				7EC2B3D31CA5A96100864B51 /* SubViewController.swift */,
@@ -249,6 +303,12 @@
 		7EC2B3D91CA5D3C100864B51 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				CE346D031DC2B2C500797A18 /* thumbnail6.jpg */,
+				CE346D041DC2B2C500797A18 /* thumbnail5.jpg */,
+				CE346D051DC2B2C500797A18 /* thumbnail4.jpg */,
+				CE346D061DC2B2C500797A18 /* thumbnail3.jpg */,
+				CE346D071DC2B2C500797A18 /* thumbnail2.jpg */,
+				CE346D081DC2B2C500797A18 /* thumbnail1.jpg */,
 				CEFB133C1D6DF71400C0E351 /* Picture-50.png */,
 				7E35560B1CC55CD6005667EA /* dude.jpg */,
 				7EA6682D1CC1699300F1E35B /* hha hand.jpg */,
@@ -337,18 +397,23 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = CDH;
 				TargetAttributes = {
 					7EC2B39C1CA59DC100864B51 = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = UP84JBQ8X7;
+						LastSwiftMigration = 0800;
+						ProvisioningStyle = Automatic;
 					};
 					7EC2B3B01CA59DC100864B51 = {
 						CreatedOnToolsVersion = 7.2.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = 7EC2B39C1CA59DC100864B51;
 					};
 					7EC2B3BB1CA59DC200864B51 = {
 						CreatedOnToolsVersion = 7.2.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = 7EC2B39C1CA59DC100864B51;
 					};
 				};
@@ -380,8 +445,12 @@
 			files = (
 				7E6C3E811CB837BE00B2F1D3 /* 7b3438882572a8be9a03b87e1c7b23de.jpg in Resources */,
 				7EC2B3AB1CA59DC100864B51 /* LaunchScreen.storyboard in Resources */,
+				CE346D0E1DC2B2C500797A18 /* thumbnail1.jpg in Resources */,
 				7EC2B3DB1CA5D41700864B51 /* hha logo.jpg in Resources */,
 				CEFB133D1D6DF71400C0E351 /* Picture-50.png in Resources */,
+				CE346D0C1DC2B2C500797A18 /* thumbnail3.jpg in Resources */,
+				CE346D0A1DC2B2C500797A18 /* thumbnail5.jpg in Resources */,
+				CE346D0B1DC2B2C500797A18 /* thumbnail4.jpg in Resources */,
 				7E776DDA1CB2F1C80026E521 /* Screen Shot 2016-04-04 at 3.01.50 PM.png in Resources */,
 				7E6C3E851CB83D6E00B2F1D3 /* menu.png in Resources */,
 				7E35560C1CC55CD6005667EA /* dude.jpg in Resources */,
@@ -389,6 +458,8 @@
 				7EC2B3A81CA59DC100864B51 /* Assets.xcassets in Resources */,
 				7EA6682E1CC1699300F1E35B /* hha hand.jpg in Resources */,
 				7E6C3E871CB83D6E00B2F1D3 /* menu@3x.png in Resources */,
+				CE346D091DC2B2C500797A18 /* thumbnail6.jpg in Resources */,
+				CE346D0D1DC2B2C500797A18 /* thumbnail2.jpg in Resources */,
 				7EC2B3A61CA59DC100864B51 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -437,7 +508,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		ED4191384B25E9E64998B480 /* [CP] Copy Pods Resources */ = {
@@ -462,24 +533,38 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE2C690A1DCA336D00DB798D /* CollectionDescViewController.swift in Sources */,
 				7E3556191CC57234005667EA /* MainViewController.swift in Sources */,
 				7EC2B3A31CA59DC100864B51 /* ViewController.swift in Sources */,
 				7EC2B3DD1CA9A5A900864B51 /* OurTableViewController2.swift in Sources */,
 				7E9ACE1D1CA9C9AB00840F03 /* SubViewController5.swift in Sources */,
+				CE346D101DC2D74700797A18 /* GalleryCollCell.swift in Sources */,
+				CEF18A361E5FCB1D00BD753F /* AboutPageViewController.swift in Sources */,
+				CE45544A1E2412330093DAA4 /* PopUpViewController.swift in Sources */,
 				7EC2B3A11CA59DC100864B51 /* AppDelegate.swift in Sources */,
 				7EC2B3D81CA5C5EE00864B51 /* SubViewController2.swift in Sources */,
+				CE4433F61DAEE24E0051CEC4 /* EndIdeaTabBarController.swift in Sources */,
 				7EC2B3D21CA59EF100864B51 /* SWRevealViewController.m in Sources */,
 				7E0CDF421CACD9DA00FCD011 /* OurTableViewController3.swift in Sources */,
+				CE346D021DC2A45000797A18 /* GalleryItemViewController.swift in Sources */,
+				CE9D64331E5233C600D8E3ED /* EndIdeaTableViewController.swift in Sources */,
 				CEFB133B1D6DE30A00C0E351 /* SidebarTableViewController.swift in Sources */,
+				CE9324451DC12B64004EB736 /* GalleryViewCell.swift in Sources */,
 				7E9ACE1F1CA9C9CC00840F03 /* SubViewController6.swift in Sources */,
+				CE9D64351E52340900D8E3ED /* EndIdeaTableViewCell.swift in Sources */,
+				CE346D121DC2D86300797A18 /* GalleryViewController.swift in Sources */,
 				7EC2B3D41CA5A96100864B51 /* SubViewController.swift in Sources */,
+				CE2C690E1DCA39FC00DB798D /* CollGalleryItemViewController.swift in Sources */,
 				7E35560F1CC5712A005667EA /* SingleItemViewController.swift in Sources */,
+				CE2C690C1DCA389300DB798D /* CollectionGalleryViewController.swift in Sources */,
 				7E35561B1CC57593005667EA /* SingleItemExpandingCell.swift in Sources */,
 				7E9ACE1B1CA9C6B100840F03 /* SubViewController4.swift in Sources */,
 				7E3556131CC57214005667EA /* SimpleItemStore.swift in Sources */,
 				7E3556111CC57204005667EA /* SimpleItem.swift in Sources */,
+				CE2C69081DCA326100DB798D /* CollectionTabBarController.swift in Sources */,
 				7E3556171CC5722E005667EA /* MainViewModel.swift in Sources */,
 				7E3556151CC57221005667EA /* ExpandingCell.swift in Sources */,
+				CE5F443D1E4E0FE400DF689D /* UnitPlanViewController.swift in Sources */,
 				7EC2B3D61CA5B31400864B51 /* OurTableViewController.swift in Sources */,
 				7E9ACE191CA9B17B00840F03 /* OurCollectionViewController.swift in Sources */,
 				7EC2B3DF1CA9A83200864B51 /* SubViewController3.swift in Sources */,
@@ -550,8 +635,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -595,8 +682,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -615,6 +704,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -624,14 +714,20 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F2F5B6E3E9A80BC8F577D5F0 /* Pods-HandheldArt.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = UP84JBQ8X7;
 				INFOPLIST_FILE = HandheldArt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = CDH.HandheldArt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "HandheldArt/HandheldArt-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -639,13 +735,19 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3D2722F914E55EFC7D7E201E /* Pods-HandheldArt.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = UP84JBQ8X7;
 				INFOPLIST_FILE = HandheldArt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = CDH.HandheldArt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "HandheldArt/HandheldArt-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -657,6 +759,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = CDH.HandheldArtTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HandheldArt.app/HandheldArt";
 			};
 			name = Debug;
@@ -669,6 +772,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = CDH.HandheldArtTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HandheldArt.app/HandheldArt";
 			};
 			name = Release;
@@ -680,6 +784,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = CDH.HandheldArtUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = HandheldArt;
 				USES_XCTRUNNER = YES;
 			};
@@ -692,6 +797,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = CDH.HandheldArtUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = HandheldArt;
 				USES_XCTRUNNER = YES;
 			};
