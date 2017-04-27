@@ -315,7 +315,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Columbia Museum of Art" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yW7-uL-WZR">
-                                            <rect key="frame" x="84" y="31.5" width="175.5" height="27.5"/>
+                                            <rect key="frame" x="83.5" y="31.5" width="175.5" height="27.5"/>
                                             <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="20"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -1186,7 +1186,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0x1-Nt-ef2">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="91.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="115.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About Handheld Art" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D9M-5B-Z43">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="37"/>
@@ -1196,7 +1196,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SdB-mS-M88">
-                                                <rect key="frame" x="8" y="45" width="359" height="38.5"/>
+                                                <rect key="frame" x="20" y="57" width="335" height="38.5"/>
                                                 <attributedString key="attributedText">
                                                     <fragment content="Description">
                                                         <attributes>
@@ -1211,12 +1211,12 @@
                                         </subviews>
                                         <color key="backgroundColor" red="0.21960784489999999" green="0.62352943419999995" blue="0.66666668650000005" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="SdB-mS-M88" secondAttribute="trailing" constant="8" id="ReY-bp-hic"/>
+                                            <constraint firstAttribute="trailing" secondItem="SdB-mS-M88" secondAttribute="trailing" constant="20" id="ReY-bp-hic"/>
                                             <constraint firstAttribute="trailing" secondItem="D9M-5B-Z43" secondAttribute="trailing" id="YUO-Eg-rny"/>
-                                            <constraint firstAttribute="bottom" secondItem="SdB-mS-M88" secondAttribute="bottom" constant="8" id="d7f-NN-XJt"/>
+                                            <constraint firstAttribute="bottom" secondItem="SdB-mS-M88" secondAttribute="bottom" constant="20" id="d7f-NN-XJt"/>
                                             <constraint firstItem="D9M-5B-Z43" firstAttribute="top" secondItem="0x1-Nt-ef2" secondAttribute="top" id="hFz-TE-k7Z"/>
-                                            <constraint firstItem="SdB-mS-M88" firstAttribute="leading" secondItem="0x1-Nt-ef2" secondAttribute="leading" constant="8" id="oeK-AY-YIH"/>
-                                            <constraint firstItem="SdB-mS-M88" firstAttribute="top" secondItem="D9M-5B-Z43" secondAttribute="bottom" constant="8" id="pu3-C7-mIx"/>
+                                            <constraint firstItem="SdB-mS-M88" firstAttribute="leading" secondItem="0x1-Nt-ef2" secondAttribute="leading" constant="20" id="oeK-AY-YIH"/>
+                                            <constraint firstItem="SdB-mS-M88" firstAttribute="top" secondItem="D9M-5B-Z43" secondAttribute="bottom" constant="20" id="pu3-C7-mIx"/>
                                             <constraint firstItem="D9M-5B-Z43" firstAttribute="leading" secondItem="0x1-Nt-ef2" secondAttribute="leading" id="v9x-HN-GAI"/>
                                         </constraints>
                                     </view>
