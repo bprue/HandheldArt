@@ -49,8 +49,6 @@ class SubViewController3: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
         
         let urlString = passURL
-        print("weensaw")
-        print (urlString)
         
 
         if let url = URL(string: urlString!) {
@@ -70,30 +68,33 @@ class SubViewController3: UIViewController, UITableViewDelegate, UITableViewData
                 let detector = try? NSDataDetector(types: types.rawValue)
                 guard let detect = detector else {
                     return
-                }
+            }
                 
-                let matches = detect.matches(in: descTextWHTML, options: .reportCompletion, range: NSMakeRange(0, descTextWHTML.characters.count))
+            let matches = detect.matches(in: descTextWHTML, options: .reportCompletion, range: NSMakeRange(0, descTextWHTML.characters.count))
                 
-                for match in matches {
-                    print("sup")
-                    print(match.url!)
+            for match in matches
+            {
+                print("sup")
+                print(match.url!)
                     
-                    //here, want to grab the item number for each unit plan...so need to convert match.url! to string??
+                //here, want to grab the item number for each unit plan...so need to convert match.url! to string??
                     
-                    let path:String = match.url!.path
-                    let index = path.index(path.startIndex, offsetBy: 12)
-                    let itemNumber:String = path.substring(from: index)
+                let path:String = match.url!.path
+                let index = path.index(path.startIndex, offsetBy: 12)
+                let itemNumber:String = path.substring(from: index)
 
-                    print(itemNumber)
+                print(itemNumber)
                     
-                    //now need to go to http://handheldart.cas.sc.edu/api/files?item=itemNumber
+                //now need to go to http://handheldart.cas.sc.edu/api/files?item=itemNumber
                     
-                    unitPlanFileURL = "http://handheldart.cas.sc.edu/api/files?item=" + itemNumber
+                unitPlanFileURL = "http://handheldart.cas.sc.edu/api/files?item=" + itemNumber
                     
-                    //since there may be more than one, need to collect em all 
-                    if let url = URL(string: unitPlanFileURL!) {
-                        if let data = try? Data(contentsOf: url, options: []) {
-                            let json = JSON(data: data)
+                //since there may be more than one, need to collect em all
+                if let url = URL(string: unitPlanFileURL!)
+                {
+                    if let data = try? Data(contentsOf: url, options: [])
+                    {
+                        let json = JSON(data: data)
                             
                             for result in json.arrayValue
                             {
@@ -103,14 +104,10 @@ class SubViewController3: UIViewController, UITableViewDelegate, UITableViewData
                                 
                                 let unitP = ["planName": unitPlanName, "pdfURL": pdfURL]
                                 unitPlans.append(unitP)
-                                
                             }
                         }
                     }
-                    
-                    
                 }
-                
                 
                 //removes all the HTML tags and such
                 print ("Hey here is descTextWHTML 123")
@@ -121,85 +118,83 @@ class SubViewController3: UIViewController, UITableViewDelegate, UITableViewData
                 print ("Hey here is descText 456")
                 print (descText)
                 
-                /**
-                * Here, we basically want to split up descText (all the text, now without any HTML tags) into different sections, such as Unit Plans, Rationale for Teaching, Key Concepts, Essential Questions. To do this (because I don't want to do anything more complicated and ugly with the HTML) I'm just searching for those header phrases, then based on their indices, creating substrings of the different sections.
-                 **/
-              
-                //****** YA NEED TO GO BACK IN HERE AND MAKE SURE THESE SECTIONS EXIST - ADD AN IF LET STATEMENT OR SOMETHING **/
-               //Find the range of the header phrase "Unit Plans" and get all of the text before that phrase. This is the initial Enduring Idea description.
                 
+                
+                //In case there is information missing from an Enduring Idea page, we check for nil
                 range = descText.range(of: "Unit Plans")
-                var lower = range?.lowerBound
-                var upper = range?.upperBound
-                eittttDescText = descText.substring(to: lower!)
+                if (range == nil)
+                    {
+                        eitDescLabel.text = "Coming soon!"
+                        rationaleLabel.text = "Coming soon!"
+                        keyConcLabel.text = "Coming soon!"
+                        essQLabel.text = "Coming soon!"
+                    
+                    }
+                //Otherwise, assume some information is there...
+                else
+                {
                 
-                //Next, going to get the text under the "Rationale for Teaching" section. Skipping the Unit Plans section because they're already present at the bottom of the page as links. 
+                    print ("Doing stuff under else")
+
                 
+                    /**
+                     * Here, we basically want to split up descText (all the text, now without any HTML tags) into different sections, such as Unit Plans, Rationale for Teaching, Key Concepts, Essential Questions. To do this (because I don't want to do anything more complicated and ugly with the HTML) I'm just searching for those header phrases, then based on their indices, creating substrings of the different sections.
+                     **/
+
+                    //Find the range of the header phrase "Unit Plans" and get all of the text before that phrase. This is the initial Enduring Idea description.
+                    range = descText.range(of: "Unit Plans")
+                    var lower = range?.lowerBound
+                    var upper = range?.upperBound
+                    eittttDescText = descText.substring(to: lower!)
+                    
+                    //Next, going to get the text under the "Rationale for Teaching" section. Skipping the Unit Plans section because they're already present at the bottom of the page as links.
+                    range = descText.range(of: "Rationale for Teaching")
+                    upper = range?.upperBound
+                    subsections = descText.substring(from: upper!)
                 
+                    //get range of "Essential Questions"
+                    range = subsections.range(of: "Key Concepts")
+                    lower = range?.lowerBound
+                    upper = range?.upperBound
                 
-                range = descText.range(of: "Rationale for Teaching")
-                upper = range?.upperBound
+                    //get the rationale text
+                    rationaleText = subsections.substring(to: lower!)
                 
-                subsections = descText.substring(from: upper!)
-                //range = descText.range(of: "Rationale for Teaching")
+                    //get everything after "Key Concepts"
+                    subsections = subsections.substring(from: upper!)
+                    range = subsections.range(of: "Essential Questions")
+                    lower = range?.lowerBound
+                    upper = range?.upperBound
+                    keyConceptsText = subsections.substring(to: lower!)
                 
-                //get range of "Essential Questions"
+                    essentialQText = subsections.substring(from: upper!)
+                    
+                    //set ("Initial Description")
+                    eitDescLabel.text = eittttDescText.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+                    
+                    
+                    //set ("Rationale for Teaching")
+                    rationaleLabel.text = rationaleText.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+                    
+                    //set ("Key Concepts")
+                    keyConcLabel.text = keyConceptsText.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+                    
+                    //set ("Essential Questions")
+                    essQLabel.text = essentialQText.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
                 
-                range = subsections.range(of: "Key Concepts")
-                
-                lower = range?.lowerBound
-                upper = range?.upperBound
-                
-                //get the rationale text
-                rationaleText = subsections.substring(to: lower!)
-                
-                //get everything after "Key Concepts"
-                subsections = subsections.substring(from: upper!)
-                
-                range = subsections.range(of: "Essential Questions")
-                
-                lower = range?.lowerBound
-                upper = range?.upperBound
-                
-                keyConceptsText = subsections.substring(to: lower!)
-                
-                essentialQText = subsections.substring(from: upper!)
-                
-                
+                }
             }
             
-            print ("Initial Description")
-            print(eittttDescText)
-            eitDescLabel.text = eittttDescText.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
- 
-            
-            print("Rationale for Teaching")
-            print(rationaleText)
-            rationaleLabel.text = rationaleText.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-            
-            print ("Key Concepts")
-            print(keyConceptsText)
-            keyConcLabel.text = keyConceptsText.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-            
-            print ("Essential Questions")
-            print(essentialQText)
-            essQLabel.text = essentialQText.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
      
             tableView.reloadData()
 
         }
         
         self.EnduringIdeaTitle.text = passName
-        
-        //let object = objects[0]
-
-        
 
     }
     
     
-    
-
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -221,27 +216,12 @@ class SubViewController3: UIViewController, UITableViewDelegate, UITableViewData
     }
     
 
-    /**
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "eiCell", for: indexPath)
-        
-        let uPlan = unitPlans[indexPath.row]
-        valueToPass = uPlan["pdfURL"]
-        print("chips1")
-        print(valueToPass)
-        
-        //(withIdentifier: "openPDF", sender: self)
-        
-    }**/
+
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        
-        
         if (segue.identifier == "openPDF")
         {
-            
-            
             let navController = segue.destination as! UINavigationController
            
             let vc = navController.topViewController as! UnitPlanViewController
@@ -257,7 +237,6 @@ class SubViewController3: UIViewController, UITableViewDelegate, UITableViewData
             vc.myURLString = valueToPass
         }
     }
-
 }
 
 
